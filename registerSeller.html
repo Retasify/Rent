@@ -6,6 +6,7 @@
     <title>Retasify - Buyer Login</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://retasify.github.io/Backend/register-seller.js"></script>
 </head>
 <body class="font-sans bg-[#FAF5EF] min-h-screen flex flex-col overflow-hidden">
     <div class="p-5 md:px-10">
@@ -17,7 +18,7 @@
             <div class="">
                 <h1 class="text-center text-3xl text-gray-800 mb-8 font-semibold">Sign up</h1>
                 
-                <form>
+                <form id="registerForm">
                     <div class="mb-5">
                         <label for="email" class="block text-black mb-2 font-medium">Email</label>
                         <input type="email" id="email" placeholder="Enter your Email Address" 
@@ -33,9 +34,9 @@
                     </div>
 
                     <div class="mb-5">
-                        <label for="password" class="block text-black mb-2 font-medium">Password</label>
+                        <label for="confirmPassword" class="block text-black mb-2 font-medium">Confirm Password</label>
                         <div class="relative">
-                            <input type="password" id="password" placeholder="Enter your Password" 
+                            <input type="password" id="confirmPassword" placeholder="Enter your Password" 
                                    class="w-full px-5 py-4 border-2 border-[#C7C7C7] rounded-full text-base transition-colors duration-300 outline-none focus:border-orange-400 placeholder-gray-400" required>
                             <i class="fa-solid fa-eye-slash absolute right-5 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500" onclick="togglePassword()"></i>
                         </div>
