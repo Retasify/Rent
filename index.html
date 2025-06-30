@@ -74,7 +74,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-min">
                 <!-- Row 1: Formal Wear (Square - Left aligned with offset, spans 5 columns) -->
-                <div class="md:col-span-5 md:col-start-2 bg-[#E8E5DC] rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                <div class="md:col-span-5 md:col-start-2 bg-[#E8E5DC] rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-80 relative overflow-hidden">
                     <div class="w-full">
                         <h3 class="text-3xl font-semibold text-gray-800 mb-4">Formal Wear</h3>
                         <p class="text-gray-600 text-lg leading-relaxed mb-6">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
 
-                <div class="md:col-span-6 bg-[#7A8B6B] rounded-3xl p-8 flex items-start justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                <div class="md:col-span-6 bg-[#7A8B6B] rounded-3xl p-8 flex items-start justify-between hover:shadow-xl transition-all duration-300 h-80 relative overflow-hidden">
                     <div class="flex-1 max-w-xs">
                         <h3 class="text-3xl font-semibold text-white mb-4">Cultural Wear</h3>
                         <p class="text-white text-lg leading-relaxed opacity-90">
@@ -99,7 +99,7 @@
                 </div>
 
                 <!-- Row 2: Specialty Wear (Rectangle - Left offset, spans 7 columns, offset by 1) -->
-                <div class="md:col-span-7 md:col-start-2 bg-[#7A8B6B] rounded-3xl p-8 flex items-start justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                <div class="md:col-span-7 md:col-start-2 bg-[#7A8B6B] rounded-3xl p-8 flex items-start justify-between hover:shadow-xl transition-all duration-300 h-80 relative overflow-hidden">
                     <div class="flex-1 max-w-md">
                         <h3 class="text-3xl font-semibold text-white mb-4">Specialty Wear</h3>
                         <p class="text-white text-lg leading-relaxed opacity-90">
@@ -112,7 +112,7 @@
                 </div>
 
                 <!-- Row 2: Wedding Wear (Square - Right aligned, spans 4 columns) -->
-                <div class="md:col-span-4 md:col-start-9 bg-[#E8E5DC] rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                <div class="md:col-span-4 md:col-start-9 bg-[#E8E5DC] rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-80 relative overflow-hidden">
                     <div class="w-full">
                         <h3 class="text-3xl font-semibold text-gray-800 mb-4">Wedding Wear</h3>
                         <p class="text-gray-600 text-lg leading-relaxed mb-6">
@@ -121,6 +121,234 @@
                     </div>
                     <div class="absolute bottom-0 right-0">
                         <img src="./images/dress.png" alt="Wedding Wear" class="w-40 h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Items -->
+    <section class="px-8 md:px-16 py-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl text-gray-800 mb-16 font-tan-aegean text-center">Featured Items</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Featured Item Card 1 -->
+                <div class="bg-[#E7E9DE] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm mx-auto p-3">
+                    <div class="relative">
+                        <img src="./images/Placeholder_img.png" alt="Black Suit" class="w-full h-64 object-cover bg-gray-300 rounded-2xl">
+                        <div class="absolute top-3 left-3 bg-[#F4B840] rounded-full p-2">
+                            <i class="fas fa-heart text-white text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Black Suit</h3>
+                        <p class="text-gray-500 text-sm mb-1">Cultural Wear, M</p>
+                        <p class="text-gray-500 text-sm mb-3">Mahalika Livelihood Center</p>
+                        
+                        <hr class="border-gray-200 mb-3">
+                        
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#F4B840] text-sm">★</span>
+                                <span class="text-sm font-medium text-gray-800">4.9</span>
+                                <span class="text-gray-400 text-sm">(85)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-gray-800">Php 1,200</p>
+                                <p class="text-gray-500 text-xs">/3 days</p>
+                            </div>
+                            <button class="bg-[#F4B840] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-500 transition-colors">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item Card 2 -->
+                <div class="bg-[#E7E9DE] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm mx-auto p-3">
+                    <div class="relative">
+                        <img src="./images/Placeholder_img.png" alt="Black Suit" class="w-full h-64 object-cover bg-gray-300 rounded-2xl">
+                        <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Black Suit</h3>
+                        <p class="text-gray-500 text-sm mb-1">Cultural Wear, M</p>
+                        <p class="text-gray-500 text-sm mb-3">Mahalika Livelihood Center</p>
+                        
+                        <hr class="border-gray-200 mb-3">
+                        
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#F4B840] text-sm">★</span>
+                                <span class="text-sm font-medium text-gray-800">4.9</span>
+                                <span class="text-gray-400 text-sm">(85)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-gray-800">Php 1,200</p>
+                                <p class="text-gray-500 text-xs">/3 days</p>
+                            </div>
+                            <button class="bg-[#F4B840] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-500 transition-colors">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item Card 3 -->
+                <div class="bg-[#E7E9DE] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm mx-auto p-3">
+                    <div class="relative">
+                        <img src="./images/Placeholder_img.png" alt="Black Suit" class="w-full h-64 object-cover bg-gray-300 rounded-2xl">
+                        <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Black Suit</h3>
+                        <p class="text-gray-500 text-sm mb-1">Cultural Wear, M</p>
+                        <p class="text-gray-500 text-sm mb-3">Mahalika Livelihood Center</p>
+                        
+                        <hr class="border-gray-200 mb-3">
+                        
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#F4B840] text-sm">★</span>
+                                <span class="text-sm font-medium text-gray-800">4.9</span>
+                                <span class="text-gray-400 text-sm">(85)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-gray-800">Php 1,200</p>
+                                <p class="text-gray-500 text-xs">/3 days</p>
+                            </div>
+                            <button class="bg-[#F4B840] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-500 transition-colors">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item Card 4 -->
+                <div class="bg-[#E7E9DE] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm mx-auto p-3">
+                    <div class="relative">
+                        <img src="./images/Placeholder_img.png" alt="Black Suit" class="w-full h-64 object-cover bg-gray-300 rounded-2xl">
+                        <div class="absolute top-3 left-3 bg-[#F4B840] rounded-full p-2">
+                            <i class="fas fa-heart text-white text-xs"></i>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Black Suit</h3>
+                        <p class="text-gray-500 text-sm mb-1">Cultural Wear, M</p>
+                        <p class="text-gray-500 text-sm mb-3">Mahalika Livelihood Center</p>
+                        
+                        <hr class="border-gray-200 mb-3">
+                        
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#F4B840] text-sm">★</span>
+                                <span class="text-sm font-medium text-gray-800">4.9</span>
+                                <span class="text-gray-400 text-sm">(85)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-gray-800">Php 1,200</p>
+                                <p class="text-gray-500 text-xs">/3 days</p>
+                            </div>
+                            <button class="bg-[#F4B840] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-500 transition-colors">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item Card 5 -->
+                <div class="bg-[#E7E9DE] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm mx-auto p-3">
+                    <div class="relative">
+                        <img src="./images/Placeholder_img.png" alt="Black Suit" class="w-full h-64 object-cover bg-gray-300 rounded-2xl">
+                        <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Black Suit</h3>
+                        <p class="text-gray-500 text-sm mb-1">Cultural Wear, M</p>
+                        <p class="text-gray-500 text-sm mb-3">Mahalika Livelihood Center</p>
+                        
+                        <hr class="border-gray-200 mb-3">
+                        
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#F4B840] text-sm">★</span>
+                                <span class="text-sm font-medium text-gray-800">4.9</span>
+                                <span class="text-gray-400 text-sm">(85)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-gray-800">Php 1,200</p>
+                                <p class="text-gray-500 text-xs">/3 days</p>
+                            </div>
+                            <button class="bg-[#F4B840] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-500 transition-colors">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Item Card 6 -->
+                <div class="bg-[#E7E9DE] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm mx-auto p-3">
+                    <div class="relative">
+                        <img src="./images/Placeholder_img.png" alt="Black Suit" class="w-full h-64 object-cover bg-gray-300 rounded-2xl">
+                        <div class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md">
+                            <i class="far fa-heart text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">Black Suit</h3>
+                        <p class="text-gray-500 text-sm mb-1">Cultural Wear, M</p>
+                        <p class="text-gray-500 text-sm mb-3">Mahalika Livelihood Center</p>
+                        
+                        <hr class="border-gray-200 mb-3">
+                        
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center gap-1">
+                                <span class="text-[#F4B840] text-sm">★</span>
+                                <span class="text-sm font-medium text-gray-800">4.9</span>
+                                <span class="text-gray-400 text-sm">(85)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-gray-800">Php 1,200</p>
+                                <p class="text-gray-500 text-xs">/3 days</p>
+                            </div>
+                            <button class="bg-[#F4B840] text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-500 transition-colors">
+                                Rent Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
