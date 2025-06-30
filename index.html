@@ -6,6 +6,7 @@
     <title>Retasify - Rent with Style</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
 </head>
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
     <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
@@ -46,9 +47,9 @@
 
     <!-- landing page -->
     <section class="max-h-screen h-screen px-5 md:px-10 py-10">
-        <div class="max-w-screen mx-auto flex items-center justify-between flex-col lg:flex-row gap-10 ml-30 mt-30">
+        <div class="max-w-screen mx-auto flex items-center justify-between flex-col lg:flex-row gap-10 ml-10 mt-30">
             <div class="flex-1 max-w-2xl">
-                <h1 class="text-6xl md:text-7xl font-light text-gray-800 mb-8 font-serif leading-tight whitespace-nowrap">
+                <h1 class="text-4xl md:text-6xl font-light text-gray-800 mb-8 leading-relaxed font-tan-aegean whitespace-nowrap">
                     Wear with Style,<br>
                     Share with Purpose.
                 </h1>
@@ -66,56 +67,60 @@
         </div>
     </section>
 
-    <section class="px-5 md:px-10 py-16">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-light text-gray-800 mb-12">Browse by Categories</h2>
+    <!-- categories section -->
+    <section class="px-8 md:px-16 py-20">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl text-gray-800 mb-16 font-tan-aegean text-center">Browse by Categories</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-100 rounded-lg p-8 flex items-center gap-6 hover:shadow-lg transition-shadow">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Formal Wear</h3>
-                        <p class="text-gray-600 text-sm mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-min">
+                <!-- Row 1: Formal Wear (Square - Left aligned with offset, spans 5 columns) -->
+                <div class="md:col-span-5 md:col-start-2 bg-[#E8E5DC] rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                    <div class="w-full">
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-4">Formal Wear</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
                             Timeless suits, gowns, and tuxedos for graduations, galas, and special nights.
                         </p>
                     </div>
-                    <div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-user-tie text-2xl text-gray-600"></i>
+                    <div class="absolute top-20 right-4">
+                        <img src="./images/Placeholder_img.png" alt="Formal Wear" class="w-52 h-60 object-contain">
                     </div>
                 </div>
 
-                <div class="bg-green-100 rounded-lg p-8 flex items-center gap-6 hover:shadow-lg transition-shadow">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Cultural Wear</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Celebrate heritage with barangs, barnas, and regional attire.
+                <div class="md:col-span-6 bg-[#7A8B6B] rounded-3xl p-8 flex items-start justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                    <div class="flex-1 max-w-xs">
+                        <h3 class="text-3xl font-semibold text-white mb-4">Cultural Wear</h3>
+                        <p class="text-white text-lg leading-relaxed opacity-90">
+                            Celebrate heritage with barongs, ternos, and regional attire.
                         </p>
                     </div>
-                    <div class="w-24 h-24 bg-green-200 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-globe text-2xl text-green-700"></i>
+                    <div class="absolute top-20 right-4">
+                        <img src="./images/Barong.png" alt="Cultural Wear" class="w-52 h-68 object-contain">
                     </div>
                 </div>
 
-                <div class="bg-green-100 rounded-lg p-8 flex items-center gap-6 hover:shadow-lg transition-shadow">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Specialty Wear</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Rent themed, cosplay or signature pieces for unique events.
+                <!-- Row 2: Specialty Wear (Rectangle - Left offset, spans 7 columns, offset by 1) -->
+                <div class="md:col-span-7 md:col-start-2 bg-[#7A8B6B] rounded-3xl p-8 flex items-start justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                    <div class="flex-1 max-w-md">
+                        <h3 class="text-3xl font-semibold text-white mb-4">Specialty Wear</h3>
+                        <p class="text-white text-lg leading-relaxed opacity-90">
+                            Rent themed, cosplay, or standout pieces for unique events.
                         </p>
                     </div>
-                    <div class="w-24 h-24 bg-green-200 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-mask text-2xl text-green-700"></i>
+                    <div class="absolute top-20 right-4">
+                        <img src="./images/Red_SpecialtyWear.png" alt="Specialty Wear" class="w-52 h-68 object-contain">
                     </div>
                 </div>
 
-                <div class="bg-gray-100 rounded-lg p-8 flex items-center gap-6 hover:shadow-lg transition-shadow">
-                    <div class="flex-1">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Wedding Wear</h3>
-                        <p class="text-gray-600 text-sm mb-4">
+                <!-- Row 2: Wedding Wear (Square - Right aligned, spans 4 columns) -->
+                <div class="md:col-span-4 md:col-start-9 bg-[#E8E5DC] rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-80 relative">
+                    <div class="w-full">
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-4">Wedding Wear</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
                             Curated gowns and suits for the big day — all in one place.
                         </p>
                     </div>
-                    <div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-ring text-2xl text-gray-600"></i>
+                    <div class="absolute top-20 right-4">
+                        <img src="./images/dress.png" alt="Wedding Wear" class="w-44 h-52 object-contain">
                     </div>
                 </div>
             </div>
