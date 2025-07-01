@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Watchlist - Retasify</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+</head>
+<body class="font-sans bg-[#FAF5EF] min-h-screen">
+    <!-- Header -->
+    <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <img src="./images/RetasifyLogo.svg" alt="Retasify Logo" class="h-12 w-auto bg-white p-2 px-8 rounded-full ml-20">
+            
+            <nav class="hidden md:flex items-center gap-6 ml-5">
+                <a href="#" class="text-white hover:text-[#F4B840] transition-colors">Categories</a>
+                <a href="#" class="text-white hover:text-[#F4B840] transition-colors">Donate/Pickup</a>
+                <a href="#" class="text-white hover:text-[#F4B840] transition-colors">Upcycle</a>
+            </nav>
+        </div>
+        
+        <div class="flex-1 max-w-md mx-8 hidden md:block">
+            <div class="relative">
+                <input type="text" placeholder="Search keywords" class="w-full px-4 py-2 rounded-full border border-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F4B840] bg-white">
+                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-3">
+            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-phone"></i>
+            </button>
+            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-bell"></i>
+            </button>
+            <a href="loginBuyer.html" class="bg-[#F4B840] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium">Sign In</a>
+            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-user"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-8 md:px-16 py-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Title -->
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">My Watchlist</h1>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="mb-8">
+                <div class="flex gap-8 border-b border-gray-200">
+                    <button class="pb-3 text-[#F4B840] font-medium border-b-2 border-[#F4B840]">RENTALS</button>
+                    <button class="pb-3 text-gray-500 font-medium hover:text-[#F4B840] transition-colors">DONATIONS</button>
+                    <button class="pb-3 text-gray-500 font-medium hover:text-[#F4B840] transition-colors">UPCYCLES</button>
+                </div>
+            </div>
+
+            <!-- Table Header -->
+            <div class="grid grid-cols-12 gap-4 py-4 px-6 bg-white rounded-t-2xl border-b border-gray-200 font-semibold text-gray-700">
+                <div class="col-span-6">Product</div>
+                <div class="col-span-2 text-center">Price</div>
+                <div class="col-span-2 text-center">Status</div>
+                <div class="col-span-2 text-center">Action</div>
+            </div>
+
+            <!-- Watchlist Items -->
+            <div class="bg-white rounded-b-2xl shadow-sm">
+                <!-- Item 1 -->
+                <div class="grid grid-cols-12 gap-4 p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-6 flex items-center gap-4">
+                        <div class="w-20 h-20 bg-gray-300 rounded-2xl flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Floral-Accented</h3>
+                            <p class="text-gray-600 text-sm">Black Tie Ensemble</p>
+                            <p class="text-gray-500 text-sm">#21000652</p>
+                            <p class="text-gray-500 text-sm">Size: M</p>
+                        </div>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Php 1,200</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Still Available</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <button class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-200 transition-colors">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="grid grid-cols-12 gap-4 p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-6 flex items-center gap-4">
+                        <div class="w-20 h-20 bg-gray-300 rounded-2xl flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Floral-Accented</h3>
+                            <p class="text-gray-600 text-sm">Black Tie Ensemble</p>
+                            <p class="text-gray-500 text-sm">#21000652</p>
+                            <p class="text-gray-500 text-sm">Size: M</p>
+                        </div>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Php 1,200</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Still Available</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <button class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-200 transition-colors">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="grid grid-cols-12 gap-4 p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-6 flex items-center gap-4">
+                        <div class="w-20 h-20 bg-gray-300 rounded-2xl flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Floral-Accented</h3>
+                            <p class="text-gray-600 text-sm">Black Tie Ensemble</p>
+                            <p class="text-gray-500 text-sm">#21000652</p>
+                            <p class="text-gray-500 text-sm">Size: M</p>
+                        </div>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Php 1,200</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Still Available</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <button class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-200 transition-colors">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="grid grid-cols-12 gap-4 p-6 hover:bg-gray-50 transition-colors">
+                    <div class="col-span-6 flex items-center gap-4">
+                        <div class="w-20 h-20 bg-gray-300 rounded-2xl flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800">Floral-Accented</h3>
+                            <p class="text-gray-600 text-sm">Black Tie Ensemble</p>
+                            <p class="text-gray-500 text-sm">#21000652</p>
+                            <p class="text-gray-500 text-sm">Size: M</p>
+                        </div>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Php 1,200</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <span class="font-medium text-gray-800">Still Available</span>
+                    </div>
+                    <div class="col-span-2 flex items-center justify-center">
+                        <button class="bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-medium hover:bg-red-200 transition-colors">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Shopping Button -->
+            <div class="mt-12 flex justify-center">
+                <button class="bg-[#F4B840] text-white px-8 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors flex items-center gap-2">
+                    <i class="fas fa-chevron-left"></i>
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#48583B] px-8 md:px-16 py-16 mt-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+                <div class="flex flex-col items-center lg:items-start gap-6 lg:col-span-2">
+                    <img src="./images/RetasifyLogoYellow1.png" alt="Retasify Logo" class="h-16 w-auto">
+                    <nav class="flex gap-8 text-white">
+                        <a href="#" class="hover:text-[#F4B840] transition-colors">About Us</a>
+                        <a href="#" class="hover:text-[#F4B840] transition-colors">Plans & Pricing</a>
+                        <a href="#" class="hover:text-[#F4B840] transition-colors">FAQ</a>
+                        <a href="#" class="hover:text-[#F4B840] transition-colors">Features</a>
+                    </nav>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-white text-lg font-medium mb-4 tracking-wider">FOLLOW US</h3>
+                        <div class="flex justify-center md:justify-start gap-3">
+                            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#F4B840] transition-colors">
+                                <i class="fab fa-tiktok text-[#48583B] text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#F4B840] transition-colors">
+                                <i class="fab fa-instagram text-[#48583B] text-lg"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#F4B840] transition-colors">
+                                <i class="fab fa-facebook text-[#48583B] text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="text-white text-lg font-medium mb-4 tracking-wider">CONTACT</h3>
+                        <div class="text-white space-y-2">
+                            <p>info@gmail.com</p>
+                            <p>+234(8729883793)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-[#71777D] mb-8">
+
+            <div class="text-center">
+                <p class="text-white text-sm">© 2025 Retasify. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
