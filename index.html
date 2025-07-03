@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <!-- test script -->
+     <script type="module" src="../Backend/show-listings.js"></script>
 </head>
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
     <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
@@ -78,13 +80,13 @@
                             </h3>
                             <ul class="space-y-2">
                                 <li class="text-[#F4B840] font-medium">Browse All</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Men</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Women</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Children</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Children (M)</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Specialty Wear</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Cultural Wear</li>
-                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4">Wedding Wear</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="men">Men</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="women">Women</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="children">Children</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="m_children">Children (M)</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="spec_wear">Specialty Wear</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="cultural">Cultural Wear</li>
+                                <li class="text-gray-600 hover:text-[#F4B840] cursor-pointer pl-4" id="wedding">Wedding Wear</li>
                             </ul>
                         </div>
 
@@ -174,7 +176,7 @@
                     </div>
 
                     <!-- Products Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="productGrid">
                         <!-- Product Card 1 -->
                         <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-3">
                             <div class="relative">
