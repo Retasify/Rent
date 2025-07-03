@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retasify - Buyer Login</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <script type="module" src="https://retasify.github.io/Backend/loginhandler-buyer.js"></script> -->
+    <script type="module" src="../Backend/loginhandler-buyer.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script type="module" src="https://retasify.github.io/Backend/register-seller.js"></script>
 </head>
 <body class="font-sans bg-[#FAF5EF] min-h-screen flex flex-col overflow-hidden">
     <div class="p-5 md:px-10">
@@ -16,9 +17,9 @@
     <div class="flex-1 flex items-center justify-between px-5 md:px-10 max-w-6xl mx-auto w-full flex-col lg:flex-row">
         <div class="flex-1 max-w-md lg:mr-15 mb-10 lg:mb-0">
             <div class="">
-                <h1 class="text-center text-3xl text-gray-800 mb-8 font-semibold">Sign up</h1>
+                <h1 class="text-center text-3xl text-gray-800 mb-8 font-semibold">Sign in</h1>
                 
-                <form id="registerForm">
+                <form id="LoginForm">
                     <div class="mb-5">
                         <label for="email" class="block text-black mb-2 font-medium">Email</label>
                         <input type="email" id="email" placeholder="Enter your Email Address" 
@@ -29,14 +30,6 @@
                         <label for="password" class="block text-black mb-2 font-medium">Password</label>
                         <div class="relative">
                             <input type="password" id="password" placeholder="Enter your Password" 
-                                   class="w-full px-5 py-4 border-2 border-[#C7C7C7] rounded-full text-base transition-colors duration-300 outline-none focus:border-orange-400 placeholder-gray-400" required>
-                        </div>
-                    </div>
-
-                    <div class="mb-5">
-                        <label for="confirmPassword" class="block text-black mb-2 font-medium">Confirm Password</label>
-                        <div class="relative">
-                            <input type="password" id="confirmPassword" placeholder="Enter your Password" 
                                    class="w-full px-5 py-4 border-2 border-[#C7C7C7] rounded-full text-base transition-colors duration-300 outline-none focus:border-orange-400 placeholder-gray-400" required>
                             <i class="fa-solid fa-eye-slash absolute right-5 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500" onclick="togglePassword()"></i>
                         </div>
@@ -54,7 +47,7 @@
                 </form>
 
                 <div class="text-center mb-8 text-black">
-                    Already have an account? <a href="loginSeller.html" class="text-[#F4B840] font-semibold hover:underline">Login</a>
+                    Don't have an account? <a href="registerBuyer.html" class="text-[#F4B840] font-semibold hover:underline">Register here</a>
                 </div>
 
                 <div class="flex items-center my-8 text-gray-400 text-sm">
@@ -79,10 +72,7 @@
         <div class="flex-1 flex justify-center items-center relative">
             <div class="flex flex-col justify-center items-center relative">
             <div class="relative w-[500px] h-[500px]">
-                <img src="./images/sellerLogin.svg" alt="Buyer Logo" class="absolute inset-0 w-full h-full object-contain z-0">
-                <h3 class="absolute left-1/2 transform -translate-x-1/2 z-10 px-4 py-2 text-center" style="bottom: 2rem; margin-bottom: -3.5rem;">
-                    Are you a buyer? <a href="registerBuyer.html" class="text-[#F4B840] font-semibold hover:underline">Click here to log in</a>
-                </h3>
+                <img src="./images/buyerLogo.svg" alt="Buyer Logo" class="absolute inset-0 w-full h-full object-contain z-0">
             </div>
             </div>
         </div>
