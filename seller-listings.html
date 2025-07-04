@@ -51,26 +51,27 @@
             
             <!-- Tabs -->
             <div class="flex border-b border-gray-200 mb-6">
-                <button class="pb-2 px-4 border-b-2 border-[#F4B840] text-[#F4B840] font-semibold">
+                <button id="activeTab" class="pb-2 px-4 border-b-2 border-[#F4B840] text-[#F4B840] font-semibold">
                     Active
                 </button>
-                <button class="pb-2 px-4 text-gray-600 hover:text-gray-800">
+                <button id="inactiveTab" class="pb-2 px-4 text-gray-600 hover:text-gray-800">
                     Inactive
                 </button>
             </div>
 
             <!-- Total Active Count -->
-            <div class="mb-6">
+            <div class="mb-6" id="activeCount">
                 <p class="text-gray-700 font-semibold">Total Active (34)</p>
             </div>
 
             <!-- Search and Filters -->
-            <div class="flex flex-col md:flex-row gap-4 mb-6">
+            <div class="flex flex-col md:flex-row gap-4 mb-6" id="searchFilters">
                 <div class="flex-1 relative">
                     <input 
                         type="text" 
                         placeholder="Search active listings" 
                         class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]"
+                        id="searchInput"
                     >
                     <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                 </div>
@@ -98,10 +99,10 @@
             </div>
 
             <!-- Results Info -->
-            <p class="text-gray-600 mb-4">Showing 1-10 of 34 results</p>
+            <p class="text-gray-600 mb-4" id="resultsInfo">Showing 1-10 of 34 results</p>
 
             <!-- Listings Table -->
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto" id="listingsTable">
                 <table class="w-full">
                     <thead>
                         <tr class="bg-gray-50 border-b">
@@ -111,8 +112,8 @@
                             <th class="text-left p-4 font-semibold text-gray-700">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- Listing Row Template (repeated 10 times) -->
+                    <tbody id="activeListings">
+                        <!-- Active Listing Rows -->
                         <tr class="border-b hover:bg-gray-50">
                             <td class="p-4">
                                 <div class="flex items-center gap-4">
@@ -387,6 +388,365 @@
                 </table>
             </div>
 
+            <div class="mb-6" id="activeCount">
+                <p class="text-gray-700 font-semibold">Total Active (34)</p>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="flex flex-col md:flex-row gap-4 mb-6" id="searchFilters">
+                <div class="flex-1 relative">
+                    <input 
+                        type="text" 
+                        placeholder="Search active listings" 
+                        class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]"
+                        id="searchInput"
+                    >
+                    <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                </div>
+                
+                <div class="flex gap-2">
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]">
+                        <option>All Categories</option>
+                        <option>Formal Wear</option>
+                        <option>Casual Wear</option>
+                        <option>Traditional Wear</option>
+                    </select>
+                    
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]">
+                        <option>All Statuses</option>
+                        <option>Available</option>
+                        <option>Rented</option>
+                        <option>Maintenance</option>
+                    </select>
+                    
+                    <button class="bg-[#F4B840] text-black px-6 py-2 rounded-lg hover:bg-yellow-500 transition-colors font-semibold">
+                        <i class="fas fa-plus mr-2"></i>
+                        Create listing
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Info -->
+            <p class="text-gray-600 mb-4" id="resultsInfo">Showing 1-10 of 34 results</p>
+
+            <!-- Inactive Listings Content (Initially Hidden) -->
+            <div id="inactiveContent" class="hidden">
+                <!-- Inactive listings simplified view -->
+                <div class="space-y-4">
+                    <!-- Inactive Listing Item -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border-b hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for more inactive listings -->
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-image text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Title</p>
+                                <p class="text-sm text-gray-600">Fiona: Accented</p>
+                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Date Created</p>
+                                <p class="text-gray-600">June 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-500">Price</p>
+                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                                    Edit
+                                </button>
+                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
+                                    Deactivate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Pagination -->
             <div class="flex items-center justify-center mt-8 gap-2">
                 <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
@@ -446,7 +806,56 @@
     <script>
         // Add any necessary JavaScript for interactivity
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle dropdown functionality if needed
+            // Tab switching functionality
+            const activeTab = document.getElementById('activeTab');
+            const inactiveTab = document.getElementById('inactiveTab');
+            const activeCount = document.getElementById('activeCount');
+            const searchFilters = document.getElementById('searchFilters');
+            const resultsInfo = document.getElementById('resultsInfo');
+            const listingsTable = document.getElementById('listingsTable');
+            const inactiveContent = document.getElementById('inactiveContent');
+            const searchInput = document.getElementById('searchInput');
+
+            // Active tab click handler
+            activeTab.addEventListener('click', function() {
+                // Update tab styles
+                activeTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                activeTab.classList.remove('text-gray-600');
+                inactiveTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                inactiveTab.classList.add('text-gray-600');
+
+                // Show active content
+                activeCount.classList.remove('hidden');
+                searchFilters.classList.remove('hidden');
+                resultsInfo.classList.remove('hidden');
+                listingsTable.classList.remove('hidden');
+                inactiveContent.classList.add('hidden');
+
+                // Update search placeholder
+                searchInput.placeholder = 'Search active listings';
+                
+                // Update results info
+                resultsInfo.textContent = 'Showing 1-10 of 34 results';
+                activeCount.innerHTML = '<p class="text-gray-700 font-semibold">Total Active (34)</p>';
+            });
+
+            // Inactive tab click handler
+            inactiveTab.addEventListener('click', function() {
+                // Update tab styles
+                inactiveTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                inactiveTab.classList.remove('text-gray-600');
+                activeTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                activeTab.classList.add('text-gray-600');
+
+                // Hide active content, show inactive content
+                activeCount.classList.add('hidden');
+                searchFilters.classList.add('hidden');
+                resultsInfo.classList.add('hidden');
+                listingsTable.classList.add('hidden');
+                inactiveContent.classList.remove('hidden');
+            });
+
+            // Handle dropdown functionality
             const dropdowns = document.querySelectorAll('select');
             dropdowns.forEach(dropdown => {
                 dropdown.addEventListener('change', function() {
@@ -456,17 +865,12 @@
             });
             
             // Handle search functionality
-            const searchInput = document.querySelector('input[type="text"]');
             if (searchInput) {
                 searchInput.addEventListener('input', function() {
                     // Handle search
                     console.log('Search query:', this.value);
                 });
             }
-            
-            // Handle edit and deactivate buttons
-            const editButtons = document.querySelectorAll('button:contains("Edit")');
-            const deactivateButtons = document.querySelectorAll('button:contains("Deactivate")');
             
             // Add click handlers for buttons
             document.querySelectorAll('button').forEach(button => {
