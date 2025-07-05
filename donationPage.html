@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
@@ -50,26 +52,26 @@
     <main class="px-8 md:px-16 py-8">
         <div class="max-w-7xl mx-auto">
             <!-- Hero Section -->
-            <section class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-bold text-[#48583B] mb-4 font-tan-aegean">Give Your Clothes a Second Life</h1>
-                <p class="text-xl text-[#383335] mb-8 max-w-3xl mx-auto font-[Raleway]">Give new life to your pre-loved items and support meaningful causes. Find a cause that matters to you and donate today.</p>
-                <button class="bg-[#F4B840] font-medium text-black px-8 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors text-lg mb-8">
+            <section class="text-center mb-16" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-[#48583B] mb-4 font-tan-aegean" data-aos="fade-up" data-aos-delay="100">Give Your Clothes a Second Life</h1>
+                <p class="text-xl text-[#383335] mb-8 max-w-3xl mx-auto font-[Raleway]" data-aos="fade-up" data-aos-delay="200">Give new life to your pre-loved items and support meaningful causes. Find a cause that matters to you and donate today.</p>
+                <button class="bg-[#F4B840] font-medium text-black px-8 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors text-lg mb-8" data-aos="fade-up" data-aos-delay="300">
                     Donate
                 </button>
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden max-w-full mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden max-w-full mx-auto" data-aos="zoom-in" data-aos-delay="400">
                     <img src="./images/chlothes.jpg" alt="Clothing Donation" class="w-full h-80 object-cover">
                 </div>
             </section>
 
             <!-- How to Help Section -->
             <section class="mb-16">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-4xl font-bold text-[#48583B] mb-4 font-tan-aegean">How to start helping?</h2>
                     <p class="text-gray-600 max-w-4xl mx-auto text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
-                    <div class="text-center w-[246px]">
+                    <div class="text-center w-[246px]" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-32 h-32 bg-[#C8CDD6] rounded-3xl mx-auto mb-6"></div>
                         <h3 class="text-xl font-semibold text-[#48583B] mb-4 flex items-center justify-center">
                             <span class="text-[#F4B840] text-2xl font-bold mr-3">01</span>
@@ -78,7 +80,7 @@
                         <p class="text-gray-600">Choose the cause you care about and see how your donations can help.</p>
                     </div>
                     
-                    <div class="text-center w-[246px]">
+                    <div class="text-center w-[246px]" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-32 h-32 bg-[#C8CDD6] rounded-3xl mx-auto mb-6"></div>
                         <h3 class="text-xl font-semibold text-[#48583B] mb-4 flex items-center justify-center">
                             <span class="text-[#F4B840] text-2xl font-bold mr-3">02</span>
@@ -87,7 +89,7 @@
                         <p class="text-gray-600">Add your donations and share details about your clothes.</p>
                     </div>
                     
-                    <div class="text-center w-[246px]">
+                    <div class="text-center w-[246px]" data-aos="fade-up" data-aos-delay="300">
                         <div class="w-32 h-32 bg-[#C8CDD6] rounded-3xl mx-auto mb-6"></div>
                         <h3 class="text-xl font-semibold text-[#48583B] mb-4 flex items-center justify-center">
                             <span class="text-[#F4B840] text-2xl font-bold mr-3">03</span>
@@ -99,9 +101,9 @@
             </section>
 
             <!-- Featured Cause Section -->
-            <section class="bg-white rounded-2xl shadow-lg overflow-hidden mb-16">
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden mb-16" data-aos="fade-up">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                    <div class="p-8 lg:p-12 flex flex-col justify-center" data-aos="fade-right">
                         <p class="text-gray-500 text-sm mb-4 font-[Raleway]">Give Your Clothes A Second Life</p>
                         <h2 class="text-6xl font-bold text-[#48583B] mb-4 font-[Raleway]">Featured Cause</h2>
                         <h3 class="text-2xl font-semibold text-gray-800 mb-2 font-[Raleway]">Warm Winter Project</h3>
@@ -111,90 +113,87 @@
                             Donate
                         </button>
                     </div>
-                    <div class="p-8 flex items-center justify-center">
+                    <div class="p-8 flex items-center justify-center" data-aos="fade-left">
                         <img src="./images/morechlothes.jpg" alt="Warm Winter Project" class="w-full h-[450px] object-cover rounded-2xl">
                     </div>
                 </div>
             </section>
 
             <!-- Statistics Section -->
-            <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-                <div class="bg-[#48583B] text-white p-8 lg:p-12 rounded-2xl">
-                    <h2 class="text-2xl font-bold mb-6">Fast Fashion's Waste is Someone Else's Need</h2>
-                    <p class="mb-4 leading-relaxed">Every year, billions of garments go to waste, often ending up in landfills or incinerated. Instead of contributing to this problem, you can help redirect these clothes to those who need them.</p>
-                    <p class="font-semibold">Together, we can turn waste into hope. Donate your clothes today!</p>
+            <section class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-16">
+                <div class="bg-[#48583B] text-white p-8 lg:p-12 rounded-2xl lg:col-span-3" data-aos="fade-right">
+                    <h2 class="text-4xl font-bold mb-6 text-white italic font-tan-aegean tracking-widest leading-24">Fast Fashion's Waste is Someone Else's Need</h2>
                 </div>
                 
-                <div class="bg-[#8B9A7E] text-white p-8 lg:p-12 rounded-2xl text-center">
-                    <div class="text-6xl font-bold mb-4">85%</div>
-                    <p class="text-xl mb-6">of all textiles go to dumps each year</p>
-                    <div class="bg-white rounded-xl overflow-hidden">
-                        <img src="https://via.placeholder.com/400x200/87CEEB/FFFFFF?text=Community+Help" alt="Community Help" class="w-full h-48 object-cover">
-                    </div>
+                <div class="bg-[#8B9A7E] text-white p-6 rounded-2xl lg:col-span-2" data-aos="fade-left">
+                    <p class="text-white text-sm leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="text-white text-sm font-semibold mt-4">Together, we can turn waste into hope. Donate your clothes today.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl lg:col-span-4 border border-[#99A57C]" data-aos="zoom-in">
+                    <img src="./images/stats.jpg" alt="Community Help Statistics" class="w-full h-48 object-cover rounded-xl overflow-hidden">
+                </div>
+                
+                <div class="bg-[#E7E9DE] text-white p-6 rounded-2xl lg:col-span-1 flex flex-col justify-center border- border-[#99A57C]" data-aos="fade-up">
+                    <div class="text-6xl font-bold mb-2 text-[#48583B] font-[Raleway]">85%</div>
+                    <p class="text-xl text-black font-medium">of all textiles go to dumps each year.</p>
+                    <p class="text-xs text-gray-600 mt-2">Earth.org</p>
                 </div>
             </section>
 
             <!-- Donation Items Section -->
             <section class="mb-16">
-                <div class="text-center mb-12">
+                <div class="flex justify-between text-center mb-12 gap-96" data-aos="fade-up">
                     <h2 class="text-3xl font-bold text-[#48583B] mb-4">Let's Give Help To Those In Need</h2>
-                    <p class="text-gray-600 max-w-4xl mx-auto text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="text-gray-600 max-w-4xl text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 
                 <div class="space-y-6">
-                    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                        <div class="flex flex-col md:flex-row items-center gap-6">
-                            <img src="https://via.placeholder.com/120x120/FF6B6B/FFFFFF?text=Clothes" alt="Donation Item" class="w-24 h-24 object-cover rounded-xl bg-gray-300">
-                            <div class="flex-1 text-center md:text-left">
+                    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <img src="https://via.placeholder.com/120x120/FF6B6B/FFFFFF?text=Clothes" alt="Donation Item" class="w-32 h-32 object-cover rounded-tl-xl rounded-bl-xl bg-gray-300">
+                            <div class="flex-1 text-center md:text-left p-5">
                                 <h3 class="text-xl font-semibold text-[#48583B] mb-2">Rags to Riches Initiative</h3>
                                 <p class="text-gray-600">Donations of clothes of every fabric pieces to the women and children who need help for families in need. Turn old clothes into something new and help build hope for families who deserve better.</p>
                             </div>
-                            <button class="bg-[#F4B840] text-white px-6 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors">
+                            <button class="bg-[#F4B840] text-white px-6 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors mr-2">
                                 Donate
                             </button>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                        <div class="flex flex-col md:flex-row items-center gap-6">
-                            <img src="https://via.placeholder.com/120x120/FF6B6B/FFFFFF?text=Clothes" alt="Donation Item" class="w-24 h-24 object-cover rounded-xl bg-gray-300">
-                            <div class="flex-1 text-center md:text-left">
-                                <h3 class="text-xl font-semibold text-[#48583B] mb-2">Children's Clothing Drive</h3>
-                                <p class="text-gray-600">Help provide warm clothing for children in need. Your donations of kids' clothes, shoes, and accessories can make a huge difference in a child's life and confidence.</p>
+                    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <img src="https://via.placeholder.com/120x120/FF6B6B/FFFFFF?text=Clothes" alt="Donation Item" class="w-32 h-32 object-cover rounded-tl-xl rounded-bl-xl bg-gray-300">
+                            <div class="flex-1 text-center md:text-left p-5">
+                                <h3 class="text-xl font-semibold text-[#48583B] mb-2">Rags to Riches Initiative</h3>
+                                <p class="text-gray-600">Donations of clothes of every fabric pieces to the women and children who need help for families in need. Turn old clothes into something new and help build hope for families who deserve better.</p>
                             </div>
-                            <button class="bg-[#F4B840] text-white px-6 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors">
+                            <button class="bg-[#F4B840] text-white px-6 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors mr-2">
                                 Donate
                             </button>
                         </div>
                     </div>
                     
-                    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-                        <div class="flex flex-col md:flex-row items-center gap-6">
-                            <img src="https://via.placeholder.com/120x120/FF6B6B/FFFFFF?text=Clothes" alt="Donation Item" class="w-24 h-24 object-cover rounded-xl bg-gray-300">
-                            <div class="flex-1 text-center md:text-left">
-                                <h3 class="text-xl font-semibold text-[#48583B] mb-2">Professional Attire Program</h3>
-                                <p class="text-gray-600">Support job seekers by donating professional clothing. Help someone dress for success and gain confidence in their career journey with quality business attire.</p>
+                    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <img src="https://via.placeholder.com/120x120/FF6B6B/FFFFFF?text=Clothes" alt="Donation Item" class="w-32 h-32 object-cover rounded-tl-xl rounded-bl-xl bg-gray-300">
+                            <div class="flex-1 text-center md:text-left p-5">
+                                <h3 class="text-xl font-semibold text-[#48583B] mb-2">Rags to Riches Initiative</h3>
+                                <p class="text-gray-600">Donations of clothes of every fabric pieces to the women and children who need help for families in need. Turn old clothes into something new and help build hope for families who deserve better.</p>
                             </div>
-                            <button class="bg-[#F4B840] text-white px-6 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors">
+                            <button class="bg-[#F4B840] text-white px-6 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors mr-2">
                                 Donate
                             </button>
                         </div>
                     </div>
-                </div>
                 
-                <div class="text-center mt-12">
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
                     <button class="bg-[#F4B840] text-white px-8 py-3 rounded-full font-medium hover:bg-orange-500 transition-colors text-lg">
                         Show More
                     </button>
                 </div>
             </section>
-
-            <!-- Continue Shopping Button -->
-            <div class="text-center">
-                <button class="bg-[#48583B] text-white px-8 py-3 rounded-full font-medium hover:bg-gray-700 transition-colors text-lg">
-                    Continue Shopping
-                </button>
-            </div>
         </div>
     </main>
 
@@ -244,5 +243,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
