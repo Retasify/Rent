@@ -40,107 +40,110 @@
 </div>
 
 <!-- Feedback Form Modal -->
-<!-- <div id="feedbackModal" class="fixed inset-0 bg-black bg-opacity-20 flex items-center justify-center z-10">
-    <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative">
-        <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" id="closeFeedbackModal">
-            <i class="fas fa-times text-xl"></i>
-        </button>
-        
-        <div class="text-center mb-6">
-            <h2 class="text-2xl font-semibold text-[#F4B840] mb-2">Rental Complete</h2>
-            <hr class="border-gray-300 mb-4">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Tell Us How It Went!</h3>
-            <p class="text-gray-600 text-sm">We'd love to hear your feedback on your renting experience.</p>
-        </div>
-
-        <div class="mb-6">
-            <h4 class="text-gray-800 font-medium mb-2">Overall Experience</h4>
-            <p class="text-gray-500 text-sm mb-3">How would you rate your overall experience with this rental shop?</p>
-            <div class="flex gap-2" data-rating="overall">
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="1">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="2">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="3">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="4">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="5">
-                    <i class="far fa-star"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="mb-6">
-            <h4 class="text-gray-800 font-medium mb-2">Product Quality</h4>
-            <p class="text-gray-500 text-sm mb-3">Was the rented item as described and in good condition?</p>
-            <div class="flex gap-2" data-rating="quality">
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="1">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="2">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="3">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="4">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="5">
-                    <i class="far fa-star"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="mb-6">
-            <h4 class="text-gray-800 font-medium mb-2">Communication</h4>
-            <p class="text-gray-500 text-sm mb-3">How satisfied were you with the shop's communication and support?</p>
-            <div class="flex gap-2" data-rating="communication">
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="1">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="2">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="3">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="4">
-                    <i class="far fa-star"></i>
-                </button>
-                <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="5">
-                    <i class="far fa-star"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="mb-6">
-            <h4 class="text-gray-800 font-medium mb-2">Additional Comments</h4>
-            <p class="text-gray-500 text-sm mb-3">Anything else you'd like to share about your experience?</p>
-            <textarea class="w-full p-4 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-[#F4B840] focus:border-transparent" 
-                      rows="4" 
-                      placeholder="Add Your Feedback"
-                      id="feedbackText"></textarea>
-        </div>
-
-        <div class="flex gap-4 mb-4">
-            <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors" id="skipFeedback">
-                Skip
+<!-- <div id="feedbackModal" class="fixed inset-0 z-10">
+    <div class="fixed inset-0 bg-black opacity-30"></div>
+    <div class="fixed inset-0 flex items-center justify-center">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full mx-4 relative z-10 max-h-[90vh] overflow-y-auto">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" id="closeFeedbackModal">
+                <i class="fas fa-times text-xl"></i>
             </button>
-            <button class="flex-1 bg-[#F4B840] text-white py-3 rounded-full font-medium hover:bg-orange-500 transition-colors" id="submitFeedback">
-                Submit
-            </button>
-        </div>
+            
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-semibold text-[#F4B840] mb-2">Rental Complete</h2>
+                <hr class="border-gray-300 mb-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Tell Us How It Went!</h3>
+                <p class="text-gray-600 text-sm">We'd love to hear your feedback on your renting experience.</p>
+            </div>
 
-        <div class="text-center">
-            <a href="#" class="text-gray-400 text-sm hover:text-gray-600 transition-colors">
-                → View Shop Rating
-            </a>
+            <div class="mb-6">
+                <h4 class="text-gray-800 font-medium mb-2">Overall Experience</h4>
+                <p class="text-gray-500 text-sm mb-3">How would you rate your overall experience with this rental shop?</p>
+                <div class="flex gap-2" data-rating="overall">
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="1">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="2">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="3">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="4">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="5">
+                        <i class="far fa-star"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-gray-800 font-medium mb-2">Product Quality</h4>
+                <p class="text-gray-500 text-sm mb-3">Was the rented item as described and in good condition?</p>
+                <div class="flex gap-2" data-rating="quality">
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="1">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="2">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="3">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="4">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="5">
+                        <i class="far fa-star"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-gray-800 font-medium mb-2">Communication</h4>
+                <p class="text-gray-500 text-sm mb-3">How satisfied were you with the shop's communication and support?</p>
+                <div class="flex gap-2" data-rating="communication">
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="1">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="2">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="3">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="4">
+                        <i class="far fa-star"></i>
+                    </button>
+                    <button class="star-btn text-3xl text-gray-300 hover:text-[#F4B840] transition-colors" data-value="5">
+                        <i class="far fa-star"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h4 class="text-gray-800 font-medium mb-2">Additional Comments</h4>
+                <p class="text-gray-500 text-sm mb-3">Anything else you'd like to share about your experience?</p>
+                <textarea class="w-full p-4 border border-gray-300 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-[#F4B840] focus:border-transparent" 
+                          rows="4" 
+                          placeholder="Add Your Feedback"
+                          id="feedbackText"></textarea>
+            </div>
+
+            <div class="flex gap-4 mb-4">
+                <button class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors" id="skipFeedback">
+                    Skip
+                </button>
+                <button class="flex-1 bg-[#F4B840] text-white py-3 rounded-full font-medium hover:bg-orange-500 transition-colors" id="submitFeedback">
+                    Submit
+                </button>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="text-gray-400 text-sm hover:text-gray-600 transition-colors">
+                    → View Shop Rating
+                </a>
+            </div>
         </div>
     </div>
 </div> -->
