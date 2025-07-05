@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <!-- test script -->
+    <script type="module" src="../Backend/user-login.js"></script>
+    <script type="module" src="../Backend/show-watchlist.js"></script>
 </head>
 
 <!-- modals -->
@@ -67,7 +70,7 @@
             <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
                 <i class="fas fa-bell"></i>
             </button> -->
-            <a href="loginBuyer.html" class="bg-[#F4B840] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium">Sign In</a>
+            <!-- <a href="loginBuyer.html" class="bg-[#F4B840] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium">Sign In</a> -->
             <!-- <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
                 <i class="fas fa-user"></i>
             </button> -->
@@ -100,7 +103,7 @@
             </div>
 
             <!-- Watchlist Items -->
-            <div class="bg-white rounded-b-2xl shadow-sm">
+            <div class="bg-white rounded-b-2xl shadow-sm" id="watchlistItems">
                 <!-- Item 1 -->
                 <div class="grid grid-cols-12 gap-4 p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors">
                     <div class="col-span-6 flex items-center gap-4">
@@ -254,5 +257,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>

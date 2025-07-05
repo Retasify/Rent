@@ -13,11 +13,14 @@
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
     <!-- test script -->
     <script type="module" src="../Backend/view-details.js"></script>
+    <script type="module" src="../Backend/add-watchlist.js"></script>
+    <script type="module" src="../Backend/user-login.js"></script>
+    <script type="module" src="../Backend/logout.js"></script>
 </head>
 
 <!-- modals -->
  <!-- Dropdown Menu -->
-<div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 hidden" id="dropdownMenu">
+<div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 hidden " id="dropdownMenu">
     <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
         <i class="fas fa-user mr-3 text-gray-400"></i>
         Profile
@@ -59,20 +62,17 @@
             </div>
         </div>
         
-        <div class="flex items-center gap-3">
-            <!-- <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
-                <i class="fas fa-phone"></i>
+        <div class="flex items-center gap-3" id="userAuthButtons">
+            <!-- These will be dynamically populated by user-login.js -->
+            <a href="login.html" class="bg-[#F4B840] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium" id="signIn">Sign In</a>
+        </div>
+        
+        <!-- User dropdown menu (hidden by default) -->
+        <div class="hidden" id="userDropdown">
+            <button class="flex items-center gap-2 text-white hover:text-[#F4B840] transition-colors">
+                <span id="userGreeting"></span>
+                <i class="fas fa-chevron-down text-xs"></i>
             </button>
-            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
-                <i class="fas fa-shopping-cart"></i>
-            </button>
-            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
-                <i class="fas fa-bell"></i>
-            </button> -->
-            <a href="loginBuyer.html" class="bg-[#F4B840] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium">Sign In</a>
-            <!-- <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
-                <i class="fas fa-user"></i>
-            </button> -->
         </div>
     </header>
 
@@ -410,5 +410,32 @@
             </div>
         </div>
     </footer>
+<script>
+// Dropdown functionality
+const userDropdown = document.getElementById('userDropdown');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+if (userDropdown && dropdownMenu) {
+    userDropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
+        // Position the dropdown just below the button
+        const rect = userDropdown.getBoundingClientRect();
+        dropdownMenu.style.position = 'absolute';
+        dropdownMenu.style.top = `${rect.bottom + window.scrollY}px`;
+        dropdownMenu.style.left = `${rect.left + window.scrollX}px`;
+        dropdownMenu.classList.toggle('hidden');
+    });
+    // Hide the dropdown when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!dropdownMenu.classList.contains('hidden')) {
+            dropdownMenu.classList.add('hidden');
+        }
+    });
+    // Prevent closing when clicking inside the dropdown
+    dropdownMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+}
+</script>
 </body>
 </html>
