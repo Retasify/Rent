@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
-    <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
+    <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between" data-aos="fade-down">
         <div class="flex items-center gap-8">
             <img src="./images/RetasifyLogo.svg" alt="Retasify Logo" class="h-12 w-auto bg-white p-2 px-8 rounded-full ml-20 border border-[#98a57d]">
             <nav class="hidden md:flex items-center gap-6 ml-5">
@@ -71,9 +72,16 @@
             </div>
             
             <div class="flex-1 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
-                <img src="./images/Picture.png" alt="" class="w-[350px] md:w-[450px] lg:w-[550px] h-[350px] md:h-[450px] lg:h-[700px] lg:w-[950px] object-cover rounded-tl-[300px] rounded-4xl shadow-lg">
+                <img src="./images/Picture.png" alt="" class="w-[350px] md:w-[450px] lg:w-[550px] h-[350px] md:h-[450px] lg:h-[700px] lg:w-[950px] object-cover rounded-tl-[200px] md:rounded-tl-[300px] rounded-4xl shadow-lg">
             </div>
         </div>
     </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            mirror: false
+        });
+    </script>
 </body>
 </html>
