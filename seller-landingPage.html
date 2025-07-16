@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+</head>
+<body class="font-sans bg-[#FAF5EF] min-h-screen">
+    <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <img src="./images/RetasifyLogo.svg" alt="Retasify Logo" class="h-12 w-auto bg-white p-2 px-8 rounded-full ml-20">
+            
+            <nav class="hidden md:flex items-center gap-6 ml-5">
+                <a href="#" class="text-white hover:text-[#F4B840] transition-colors">Listing</a>
+                <a href="#" class="text-white hover:text-[#F4B840] transition-colors">Orders</a>
+                <button class="bg-[#F4B840] text-black px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium">
+                    Turn of seller mode
+                </button>
+            </nav>
+        </div>
+        
+        <div class="flex-1 max-w-md mx-8 hidden md:block">
+            <div class="relative">
+                <input type="text" placeholder="Search keywords" class="w-full px-4 py-2 rounded-full border border-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F4B840] bg-white">
+                <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-3">
+            <!-- <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-phone"></i>
+            </button>
+            <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button class="p-2 text-[#F4B840] hover:text-white transition-colors">
+                <i class="fas fa-bell"></i>
+            </button> -->
+            <a href="loginBuyer.html" class="bg-[#F4B840] text-white px-6 py-2 rounded-full hover:bg-orange-500 transition-colors text-sm font-medium">Sign In</a>
+            <!-- <button class="p-2 text-white hover:text-[#F4B840] transition-colors">
+                <i class="fas fa-user"></i>
+            </button> -->
+        </div>
+    </header>
+</body>
+</html>
