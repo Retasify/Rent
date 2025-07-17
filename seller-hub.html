@@ -20,8 +20,8 @@
             <img src="./images/RetasifyLogo.svg" alt="Retasify Logo" class="h-12 w-auto bg-white p-2 px-8 rounded-full ml-20">
             
             <nav class="hidden md:flex items-center gap-6 ml-5">
-                <a href="#" class="text-white hover:text-[#F4B840] transition-colors text-lg">Listings</a>
-                <a href="#" class="text-white hover:text-[#F4B840] transition-colors text-lg">Orders</a>
+                <a href="#" id="listingsBtn" class="text-white hover:text-[#F4B840] transition-colors text-lg">Listings</a>
+                <a href="#" id="ordersBtn" class="text-white hover:text-[#F4B840] transition-colors text-lg">Orders</a>
                 <button class="bg-[#F4B840] text-black px-4 py-2 rounded-full hover:bg-yellow-500 transition-colors">
                     Turn Off Seller Mode
                 </button>
@@ -46,7 +46,7 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto p-6 md:p-8">
         <!-- My Listings Section -->
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8" id="listingsSection">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">My Listings</h2>
             
             <!-- Tabs -->
@@ -178,6 +178,563 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-center mt-8 gap-2">
+                <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-chevron-left text-gray-400"></i>
+                </button>
+                <button class="w-8 h-8 bg-[#F4B840] text-black rounded-lg font-semibold">1</button>
+                <button class="w-8 h-8 hover:bg-gray-100 text-gray-600 rounded-lg">2</button>
+                <button class="w-8 h-8 hover:bg-gray-100 text-gray-600 rounded-lg">3</button>
+                <button class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Orders Section -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8 hidden" id="ordersSection">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">My Listings</h2>
+            
+            <!-- Tabs -->
+            <div class="flex border-b border-gray-200 mb-6">
+                <button id="activeOrdersTab" class="pb-2 px-4 border-b-2 border-[#F4B840] text-[#F4B840] font-semibold">
+                    Active
+                </button>
+                <button id="pendingOrdersTab" class="pb-2 px-4 text-gray-600 hover:text-gray-800">
+                    Pending
+                </button>
+                <button id="cancelledOrdersTab" class="pb-2 px-4 text-gray-600 hover:text-gray-800">
+                    Cancellations
+                </button>
+            </div>
+
+            <!-- Active Orders Content -->
+            <div id="activeOrdersContent">
+                <!-- Total Active Count -->
+                <div class="mb-6">
+                    <p class="text-gray-700 font-semibold">Total Active (34)</p>
+                    <p class="text-gray-600 text-sm">Showing 1-10 of 34 results</p>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50 border-b">
+                                <th class="text-left p-4 font-semibold text-gray-700">Order ID</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Picture</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Buyer</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Contact</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Rent Duration</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Date Picked Up</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Day(s) left</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Order Row 1 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 2 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 3 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 4 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 5 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 6 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 7 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 8 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 9 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                            <!-- Order Row 10 -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4 text-gray-800">June 25</td>
+                                <td class="p-4 text-gray-800">3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pending Orders Content -->
+            <div id="pendingOrdersContent" class="hidden">
+                <!-- Total Pending Count -->
+                <div class="mb-6">
+                    <p class="text-gray-700 font-semibold">Total Pending (10)</p>
+                    <p class="text-gray-600 text-sm">Showing 1-10 of 10 results</p>
+                </div>
+
+                <!-- Pending Orders Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50 border-b">
+                                <th class="text-left p-4 font-semibold text-gray-700">Order ID</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Picture</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Buyer</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Contact</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Rent Duration</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Pending Order Rows -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cancellations Content -->
+            <div id="cancelledOrdersContent" class="hidden">
+                <!-- Total Cancellations Count -->
+                <div class="mb-6">
+                    <p class="text-gray-700 font-semibold">Total Cancellations (4)</p>
+                    <p class="text-gray-600 text-sm">Showing 1-4 of 4 results</p>
+                </div>
+
+                <!-- Cancellations Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50 border-b">
+                                <th class="text-left p-4 font-semibold text-gray-700">Order ID</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Picture</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Buyer</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Contact</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Rent Duration</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Cancelled Order Rows -->
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="p-4 text-gray-800 font-medium">#01</td>
+                                <td class="p-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-image text-gray-400"></i>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800 font-medium">[name]</p>
+                                    <p class="text-sm text-gray-600">[username]</p>
+                                </td>
+                                <td class="p-4">
+                                    <p class="text-gray-800">[phone no.]</p>
+                                    <p class="text-sm text-gray-600">[email]</p>
+                                </td>
+                                <td class="p-4 text-gray-800">June 26 - 29</td>
+                                <td class="p-4">
+                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
+                                        Ready for Pickup
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -345,6 +902,11 @@
         </div>
     </div>
 
+    <!-- active orders -->
+    <div class="hidden" id="activeOrders">
+        <!-- Active orders content goes here -->
+    </div>    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const createBtn = Array.from(document.querySelectorAll('button')).find(btn => btn.textContent.includes('Create listing'));
@@ -462,6 +1024,94 @@
                         console.log('Create listing clicked');
                     });
                 }
+            });
+
+            // Navigation between Listings and Orders
+            const listingsBtn = document.getElementById('listingsBtn');
+            const ordersBtn = document.getElementById('ordersBtn');
+            const listingsSection = document.getElementById('listingsSection');
+            const ordersSection = document.getElementById('ordersSection');
+
+            // Listings navigation
+            listingsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                listingsSection.classList.remove('hidden');
+                ordersSection.classList.add('hidden');
+                
+                // Update nav styles
+                listingsBtn.classList.add('text-[#F4B840]');
+                listingsBtn.classList.remove('text-white');
+                ordersBtn.classList.add('text-white');
+                ordersBtn.classList.remove('text-[#F4B840]');
+            });
+
+            // Orders navigation
+            ordersBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                listingsSection.classList.add('hidden');
+                ordersSection.classList.remove('hidden');
+                
+                // Update nav styles
+                ordersBtn.classList.add('text-[#F4B840]');
+                ordersBtn.classList.remove('text-white');
+                listingsBtn.classList.add('text-white');
+                listingsBtn.classList.remove('text-[#F4B840]');
+            });
+
+            // Orders tab functionality
+            const activeOrdersTab = document.getElementById('activeOrdersTab');
+            const pendingOrdersTab = document.getElementById('pendingOrdersTab');
+            const cancelledOrdersTab = document.getElementById('cancelledOrdersTab');
+            const activeOrdersContent = document.getElementById('activeOrdersContent');
+            const pendingOrdersContent = document.getElementById('pendingOrdersContent');
+            const cancelledOrdersContent = document.getElementById('cancelledOrdersContent');
+
+            // Active Orders Tab
+            activeOrdersTab.addEventListener('click', function() {
+                // Update tab styles
+                activeOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                activeOrdersTab.classList.remove('text-gray-600');
+                pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                pendingOrdersTab.classList.add('text-gray-600');
+                cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                cancelledOrdersTab.classList.add('text-gray-600');
+
+                // Show active content
+                activeOrdersContent.classList.remove('hidden');
+                pendingOrdersContent.classList.add('hidden');
+                cancelledOrdersContent.classList.add('hidden');
+            });
+
+            // Pending Orders Tab
+            pendingOrdersTab.addEventListener('click', function() {
+                // Update tab styles
+                pendingOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                pendingOrdersTab.classList.remove('text-gray-600');
+                activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                activeOrdersTab.classList.add('text-gray-600');
+                cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                cancelledOrdersTab.classList.add('text-gray-600');
+
+                // Show pending content
+                activeOrdersContent.classList.add('hidden');
+                pendingOrdersContent.classList.remove('hidden');
+                cancelledOrdersContent.classList.add('hidden');
+            });
+
+            // Cancellations Tab
+            cancelledOrdersTab.addEventListener('click', function() {
+                // Update tab styles
+                cancelledOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                cancelledOrdersTab.classList.remove('text-gray-600');
+                activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                activeOrdersTab.classList.add('text-gray-600');
+                pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                pendingOrdersTab.classList.add('text-gray-600');
+
+                // Show cancellations content
+                activeOrdersContent.classList.add('hidden');
+                pendingOrdersContent.classList.add('hidden');
+                cancelledOrdersContent.classList.remove('hidden');
             });
         });
     </script>
