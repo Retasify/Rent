@@ -11,9 +11,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <script type="module" src="../Backend/seller-hub-login.js"></script>
+
+    <script type="module" src="../Backend/seller-hub-core.js"></script>
 </head>
 
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
+
+    <!-- Dropdown Menu -->
+<div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 hidden" id="dropdownMenu">
+    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+        <i class="fas fa-user mr-3 text-gray-400"></i>
+        Profile
+    </a>
+    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors" id="sellerHub">
+        <i class="fas fa-store mr-3 text-gray-400" ></i>
+        Become a Seller
+    </a>
+    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
+        <i class="fas fa-cog mr-3 text-gray-400"></i>
+        Settings
+    </a>
+    <hr class="my-2 border-gray-200">
+    <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors" id="logoutButton">
+        <i class="fas fa-sign-out-alt mr-3 text-gray-400"></i>
+        Log Out
+    </a>
+</div>
     <!-- Header -->
     <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
         <div class="flex items-center gap-8">
@@ -22,18 +46,18 @@
             <nav class="hidden md:flex items-center gap-6 ml-5">
                 <a href="#" id="listingsBtn" class="text-white hover:text-[#F4B840] transition-colors text-lg">Listings</a>
                 <a href="#" id="ordersBtn" class="text-white hover:text-[#F4B840] transition-colors text-lg">Orders</a>
-                <button class="bg-[#F4B840] text-black px-4 py-2 rounded-full hover:bg-yellow-500 transition-colors">
+                <button class="bg-[#F4B840] text-black px-4 py-2 rounded-full hover:bg-yellow-500 transition-colors" id="turnOffSellerMode">
                     Turn Off Seller Mode
                 </button>
             </nav>
         </div>
         
         <div class="flex items-center gap-4">
-            <i class="fas fa-cog text-white text-xl hover:text-[#F4B840] cursor-pointer"></i>
-            <i class="fas fa-bell text-white text-xl hover:text-[#F4B840] cursor-pointer"></i>
+            <!-- <i class="fas fa-cog text-white text-xl hover:text-[#F4B840] cursor-pointer"></i>
+            <i class="fas fa-bell text-white text-xl hover:text-[#F4B840] cursor-pointer"></i> -->
             <div class="flex items-center gap-2">
-                <i class="fas fa-user text-white text-xl"></i>
-                <span class="text-white text-sm">[user name]</span>
+                <!-- <i class="fas fa-user text-white text-xl"></i> -->
+                <span class="text-white text-sm" id="userName">Loading..</span>
             </div>
         </div>
     </header>
@@ -44,7 +68,7 @@
     </section>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto p-6 md:p-8">
+    <main class="max-w-7xl mx-auto p-6 md:p-8" >
         <!-- My Listings Section -->
         <div class="bg-white rounded-lg shadow-lg p-6 mb-8" id="listingsSection">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">My Listings</h2>
@@ -60,8 +84,8 @@
             </div>
 
             <!-- Total Active Count -->
-            <div class="mb-6" id="activeCount">
-                <p class="text-gray-700 font-semibold">Total Active (34)</p>
+            <div class="mb-6 hidden" id="activeCount">
+                <p class="text-gray-700 font-semibold" id="activeCountDisplay">Loading..</p>
             </div>
 
             <!-- Search and Filters -->
@@ -77,21 +101,7 @@
                 </div>
                 
                 <div class="flex gap-2">
-                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]">
-                        <option>All Categories</option>
-                        <option>Formal Wear</option>
-                        <option>Casual Wear</option>
-                        <option>Traditional Wear</option>
-                    </select>
-                    
-                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]">
-                        <option>All Statuses</option>
-                        <option>Available</option>
-                        <option>Rented</option>
-                        <option>Maintenance</option>
-                    </select>
-                    
-                    <button class="bg-[#F4B840] text-black px-6 py-2 rounded-lg hover:bg-yellow-500 transition-colors font-semibold">
+                    <button class="bg-[#F4B840] text-black px-6 py-2 rounded-lg hover:bg-yellow-500 transition-colors font-semibold" id="createListingBtn1">
                         <i class="fas fa-plus mr-2"></i>
                         Create listing
                     </button>
@@ -113,7 +123,7 @@
                     </thead>
                     <tbody id="activeListings">
                         <!-- Active Listing Rows -->
-                        <tr class="border-b hover:bg-gray-50">
+                        <!-- <tr class="border-b hover:bg-gray-50">
                             <td class="p-4">
                                 <div class="flex items-center gap-4">
                                     <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
@@ -138,46 +148,50 @@
                                     </button>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
 
             <!-- Inactive Listings Content (Initially Hidden) -->
             <div id="inactiveContent" class="hidden">
-                <!-- Inactive listings simplified view -->
-                <div class="space-y-4">
-                    <!-- Inactive Listing Item -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg border hover:bg-gray-100 transition-colors">
-                        <div class="flex items-center gap-4">
-                            <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-image text-gray-400"></i>
-                            </div>
-                            <div>
-                                <p class="font-semibold text-gray-800">Title</p>
-                                <p class="text-sm text-gray-600">Fiona: Accented</p>
-                                <p class="text-sm text-gray-600">Black Tie Ensemble</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-6">
-                            <div class="text-right">
-                                <p class="text-sm text-gray-500">Date Created</p>
-                                <p class="text-gray-600">June 15, 2025</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-sm text-gray-500">Price</p>
-                                <p class="text-gray-800 font-semibold">₱99 1,200</p>
-                            </div>
-                            <div class="flex gap-2">
-                                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
-                                    Edit
-                                </button>
-                                <button class="bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors">
-                                    Deactivate
-                                </button>
-                            </div>
-                        </div>
+                <!-- Search and Filters -->
+                <div class="flex flex-col md:flex-row gap-4 mb-6" id="inactiveSearchFilters">
+                    <div class="flex-1 relative">
+                        <input 
+                            type="text" 
+                            placeholder="Search inactive listings" 
+                            class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F4B840]"
+                            id="inactiveSearchInput"
+                        >
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                     </div>
+                    
+                    <div class="flex gap-2">
+                        <button class="bg-[#F4B840] text-black px-6 py-2 rounded-lg hover:bg-yellow-500 transition-colors font-semibold" id="createListingBtn2">
+                            <i class="fas fa-plus mr-2"></i>
+                            Create listing
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Results Info -->
+                <p class="text-gray-600 mb-4" id="inactiveResultsInfo">Showing 1-10 of 34 results</p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50 border-b">
+                                <th class="text-left p-4 font-semibold text-gray-700">Title</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Date Created</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Price</th>
+                                <th class="text-left p-4 font-semibold text-gray-700">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inactiveListings">
+                            <!-- Inactive Listing Rows will be inserted here -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -573,50 +587,6 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 text-gray-800 font-medium">#01</td>
-                                <td class="p-4">
-                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-image text-gray-400"></i>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <p class="text-gray-800 font-medium">[name]</p>
-                                    <p class="text-sm text-gray-600">[username]</p>
-                                </td>
-                                <td class="p-4">
-                                    <p class="text-gray-800">[phone no.]</p>
-                                    <p class="text-sm text-gray-600">[email]</p>
-                                </td>
-                                <td class="p-4 text-gray-800">June 26 - 29</td>
-                                <td class="p-4">
-                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
-                                        Ready for Pickup
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="border-b hover:bg-gray-50">
-                                <td class="p-4 text-gray-800 font-medium">#01</td>
-                                <td class="p-4">
-                                    <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-image text-gray-400"></i>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <p class="text-gray-800 font-medium">[name]</p>
-                                    <p class="text-sm text-gray-600">[username]</p>
-                                </td>
-                                <td class="p-4">
-                                    <p class="text-gray-800">[phone no.]</p>
-                                    <p class="text-sm text-gray-600">[email]</p>
-                                </td>
-                                <td class="p-4 text-gray-800">June 26 - 29</td>
-                                <td class="p-4">
-                                    <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm">
-                                        Ready for Pickup
-                                    </button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -810,23 +780,22 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-gray-700 mb-1">Title <span class="text-red-500">*</span></label>
-                                <input type="text" class="w-full border rounded-lg px-3 py-2 mb-1 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Title" required>
-                                <span class="text-xs text-red-500">Similar title already exists. Change title.</span>
+                                <input type="text" id="listingTitle" class="w-full border rounded-lg px-3 py-2 mb-1 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Title" required>
                             </div>
                             <div>
                                 <label class="block text-gray-700 mb-1">Subtitle</label>
-                                <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Subtitle">
+                                <input type="text" id="listingSubtitle" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Subtitle">
                             </div>
                             <div>
                                 <label class="block text-gray-700 mb-1">Category <span class="text-red-500">*</span></label>
                                 <div class="relative">
-                                    <input type="text" class="w-full border rounded-lg px-3 py-2 pr-10 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Search Category" required>
+                                    <input type="text" id="listingCategory" class="w-full border rounded-lg px-3 py-2 pr-10 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Search Category" required>
                                     <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-gray-700 mb-1">Condition <span class="text-red-500">*</span></label>
-                                <select class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" required>
+                                <select id="listingCondition" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" required>
                                     <option>Choose Condition</option>
                                     <option>New</option>
                                     <option>Used</option>
@@ -836,7 +805,7 @@
                                 <div class="flex justify-evenly">
                                     <div class="">
                                         <label class="block text-gray-700 mb-1">Sizes</label>
-                                        <select class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]">
+                                        <select id="listingSize" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]">
                                             <option>Extra Small</option>
                                             <option>Small</option>
                                             <option>Medium</option>
@@ -846,35 +815,61 @@
                                     </div>
                                     <div>
                                         <label class="block text-gray-700 mb-1">Bust</label>
-                                        <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Bust Size">
+                                        <input type="text" id="listingBust" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Bust Size">
                                     </div>
                                     <div>
                                         <label class="block text-gray-700 mb-1">Waist</label>
-                                        <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Waist Size">
+                                        <input type="text" id="listingWaist" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Waist Size">
                                     </div>
                                     <div>
                                         <label class="block text-gray-700 mb-1">Length</label>
-                                        <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Length size">
+                                        <input type="text" id="listingLength" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Length size">
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-gray-700 mb-1">Price <span class="text-red-500">*</span></label>
-                                <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Set Your Price" required>
+                                <input type="text" id="listingPrice" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Set Your Price" required>
                             </div>
                         </div>
                         <div class="mt-4">
                             <label class="block text-gray-700 mb-1">Item Description <span class="text-red-500">*</span></label>
-                            <textarea class="w-full border rounded-lg px-3 py-2 h-32 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Description" required></textarea>
+                            <textarea id="listingDescription" class="w-full border rounded-lg px-3 py-2 h-32 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Description" required></textarea>
                         </div>
                     </div>
                     <!-- Upload Photos -->
                     <div>
                         <h4 class="font-semibold text-gray-700 mb-2">Upload Photos</h4>
-                        <p class="text-sm text-gray-500 mb-4">Photos help your viewers see what makes your item special. Upload a few pics to make your listing stand out.</p>
-                        <div class="bg-[#E6E7D9] border-dashed border-2 border-[#9CA684] rounded-xl flex flex-col items-center justify-center py-10">
-                            <i class="fas fa-image text-5xl text-[#9CA684] mb-4"></i>
-                            <button type="button" class="bg-[#9CA684] text-white px-4 py-2 rounded-lg hover:bg-[#48583B] transition-colors">Upload from computer</button>
+                        <p class="text-sm text-gray-500 mb-4">Upload at least 3 photos to showcase your item.</p>
+                        <div id="photoUploadContainer" class="grid grid-cols-4 gap-4">
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg h-40 flex items-center justify-center cursor-pointer hover:bg-gray-50">
+                                <div class="text-center">
+                                    <i class="fas fa-plus text-gray-400 text-2xl mb-2"></i>
+                                    <p class="text-gray-500 text-sm">Add Photo</p>
+                                </div>
+                                <input type="file" id="photoUpload1" class="hidden" accept="image/*">
+                            </div>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg h-40 flex items-center justify-center cursor-pointer hover:bg-gray-50">
+                                <div class="text-center">
+                                    <i class="fas fa-plus text-gray-400 text-2xl mb-2"></i>
+                                    <p class="text-gray-500 text-sm">Add Photo</p>
+                                </div>
+                                <input type="file" id="photoUpload2" class="hidden" accept="image/*">
+                            </div>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg h-40 flex items-center justify-center cursor-pointer hover:bg-gray-50">
+                                <div class="text-center">
+                                    <i class="fas fa-plus text-gray-400 text-2xl mb-2"></i>
+                                    <p class="text-gray-500 text-sm">Add Photo</p>
+                                </div>
+                                <input type="file" id="photoUpload3" class="hidden" accept="image/*">
+                            </div>
+                            <div class="border-2 border-dashed border-gray-300 rounded-lg h-40 flex items-center justify-center cursor-pointer hover:bg-gray-50">
+                                <div class="text-center">
+                                    <i class="fas fa-plus text-gray-400 text-2xl mb-2"></i>
+                                    <p class="text-gray-500 text-sm">Add Photo</p>
+                                </div>
+                                <input type="file" id="photoUpload4" class="hidden" accept="image/*">
+                            </div>
                         </div>
                     </div>
                     <!-- Pickup Area -->
@@ -884,11 +879,11 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-gray-700 mb-1">Address</label>
-                                <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Address">
+                                <input type="text" id="listingAddress" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Address">
                             </div>
                             <div>
                                 <label class="block text-gray-700 mb-1">Landmark</label>
-                                <input type="text" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Landmark">
+                                <input type="text" id="listingLandmark" class="w-full border rounded-lg px-3 py-2 focus:ring-[#9CA684] focus:border-[#9CA684]" placeholder="Enter Landmark">
                             </div>
                         </div>
                     </div>
@@ -941,178 +936,116 @@
     </script>
 
     <script>
-        // Add any necessary JavaScript for interactivity
+        // Tab switching functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab switching functionality
-            const activeTab = document.getElementById('activeTab');
-            const inactiveTab = document.getElementById('inactiveTab');
-            const activeCount = document.getElementById('activeCount');
-            const searchFilters = document.getElementById('searchFilters');
-            const resultsInfo = document.getElementById('resultsInfo');
-            const listingsTable = document.getElementById('listingsTable');
-            const inactiveContent = document.getElementById('inactiveContent');
-            const searchInput = document.getElementById('searchInput');
+            // Create listing modal handling
+            const createListingBtns = document.querySelectorAll('button[id^="createListingBtn"]');
+            const createListingModal = document.getElementById('createListing');
+            const closeBtn = document.getElementById('closeCreateListing');
+            const discardBtn = document.getElementById('discardListing');
+            const listingForm = document.getElementById('listingForm');
 
-            // Active tab click handler
-            activeTab.addEventListener('click', function() {
-                // Update tab styles
-                activeTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                activeTab.classList.remove('text-gray-600');
-                inactiveTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                inactiveTab.classList.add('text-gray-600');
-
-                // Show active content
-                activeCount.classList.remove('hidden');
-                searchFilters.classList.remove('hidden');
-                resultsInfo.classList.remove('hidden');
-                listingsTable.classList.remove('hidden');
-                inactiveContent.classList.add('hidden');
-
-                // Update search placeholder
-                searchInput.placeholder = 'Search active listings';
-                
-                // Update results info
-                resultsInfo.textContent = 'Showing 1-10 of 34 results';
-                activeCount.innerHTML = '<p class="text-gray-700 font-semibold">Total Active (34)</p>';
-            });
-
-            // Inactive tab click handler
-            inactiveTab.addEventListener('click', function() {
-                // Update tab styles
-                inactiveTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                inactiveTab.classList.remove('text-gray-600');
-                activeTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                activeTab.classList.add('text-gray-600');
-
-                // Hide active content, show inactive content
-                activeCount.classList.add('hidden');
-                searchFilters.classList.add('hidden');
-                resultsInfo.classList.add('hidden');
-                listingsTable.classList.add('hidden');
-                inactiveContent.classList.remove('hidden');
-            });
-
-            // Handle dropdown functionality
-            const dropdowns = document.querySelectorAll('select');
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('change', function() {
-                    // Handle filter changes
-                    console.log('Filter changed:', this.value);
+            // Handle create listing button clicks from both sections
+            createListingBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    createListingModal.style.display = 'block';
                 });
             });
-            
-            // Handle search functionality
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    // Handle search
-                    console.log('Search query:', this.value);
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    createListingModal.style.display = 'none';
                 });
             }
-            
-            // Add click handlers for buttons
-            document.querySelectorAll('button').forEach(button => {
-                if (button.textContent.includes('Edit')) {
-                    button.addEventListener('click', function() {
-                        console.log('Edit listing clicked');
-                    });
-                } else if (button.textContent.includes('Deactivate')) {
-                    button.addEventListener('click', function() {
-                        console.log('Deactivate listing clicked');
-                    });
-                } else if (button.textContent.includes('Create listing')) {
-                    button.addEventListener('click', function() {
-                        console.log('Create listing clicked');
-                    });
-                }
-            });
 
-            // Navigation between Listings and Orders
+            if (discardBtn) {
+                discardBtn.addEventListener('click', function() {
+                    createListingModal.style.display = 'none';
+                });
+            }
+
+            if (listingForm) {
+                listingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Handle submit logic here
+                    createListingModal.style.display = 'none';
+                });
+            }
+
+            // Main navigation between Listings and Orders
             const listingsBtn = document.getElementById('listingsBtn');
             const ordersBtn = document.getElementById('ordersBtn');
             const listingsSection = document.getElementById('listingsSection');
             const ordersSection = document.getElementById('ordersSection');
 
-            // Listings navigation
-            listingsBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                listingsSection.classList.remove('hidden');
-                ordersSection.classList.add('hidden');
-                
-                // Update nav styles
-                listingsBtn.classList.add('text-[#F4B840]');
-                listingsBtn.classList.remove('text-white');
-                ordersBtn.classList.add('text-white');
-                ordersBtn.classList.remove('text-[#F4B840]');
-            });
+            // Listings/Orders navigation
+            if (listingsBtn && ordersBtn) {
+                listingsBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    listingsSection.classList.remove('hidden');
+                    ordersSection.classList.add('hidden');
+                    
+                    // Update nav styles
+                    listingsBtn.classList.add('text-[#F4B840]');
+                    listingsBtn.classList.remove('text-white');
+                    ordersBtn.classList.add('text-white');
+                    ordersBtn.classList.remove('text-[#F4B840]');
+                });
 
-            // Orders navigation
-            ordersBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                listingsSection.classList.add('hidden');
-                ordersSection.classList.remove('hidden');
-                
-                // Update nav styles
-                ordersBtn.classList.add('text-[#F4B840]');
-                ordersBtn.classList.remove('text-white');
-                listingsBtn.classList.add('text-white');
-                listingsBtn.classList.remove('text-[#F4B840]');
-            });
+                ordersBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    listingsSection.classList.add('hidden');
+                    ordersSection.classList.remove('hidden');
+                    
+                    // Update nav styles
+                    ordersBtn.classList.add('text-[#F4B840]');
+                    ordersBtn.classList.remove('text-white');
+                    listingsBtn.classList.add('text-white');
+                    listingsBtn.classList.remove('text-[#F4B840]');
+                });
+            }
 
-            // Orders tab functionality
-            const activeOrdersTab = document.getElementById('activeOrdersTab');
-            const pendingOrdersTab = document.getElementById('pendingOrdersTab');
-            const cancelledOrdersTab = document.getElementById('cancelledOrdersTab');
-            const activeOrdersContent = document.getElementById('activeOrdersContent');
-            const pendingOrdersContent = document.getElementById('pendingOrdersContent');
-            const cancelledOrdersContent = document.getElementById('cancelledOrdersContent');
+            // Active/Inactive listings tabs
+            const activeTab = document.getElementById('activeTab');
+            const inactiveTab = document.getElementById('inactiveTab');
+            const listingsTable = document.getElementById('listingsTable');
+            const inactiveContent = document.getElementById('inactiveContent');
+            const resultsInfo = document.getElementById('resultsInfo');
+            const searchFilters = document.getElementById('searchFilters');
+            const searchInput = document.getElementById('searchInput');
 
-            // Active Orders Tab
-            activeOrdersTab.addEventListener('click', function() {
-                // Update tab styles
-                activeOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                activeOrdersTab.classList.remove('text-gray-600');
-                pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                pendingOrdersTab.classList.add('text-gray-600');
-                cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                cancelledOrdersTab.classList.add('text-gray-600');
+            if (activeTab && inactiveTab) {
+                // Active tab click handler
+                activeTab.addEventListener('click', function() {
+                    // Update tab styles
+                    activeTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    activeTab.classList.remove('text-gray-600');
+                    inactiveTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    inactiveTab.classList.add('text-gray-600');
 
-                // Show active content
-                activeOrdersContent.classList.remove('hidden');
-                pendingOrdersContent.classList.add('hidden');
-                cancelledOrdersContent.classList.add('hidden');
-            });
+                    // Show active content
+                    resultsInfo.classList.remove('hidden');
+                    listingsTable.classList.remove('hidden');
+                    inactiveContent.classList.add('hidden');
+                    searchFilters.classList.remove('hidden');
+                    searchInput.placeholder = 'Search active listings';
+                });
 
-            // Pending Orders Tab
-            pendingOrdersTab.addEventListener('click', function() {
-                // Update tab styles
-                pendingOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                pendingOrdersTab.classList.remove('text-gray-600');
-                activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                activeOrdersTab.classList.add('text-gray-600');
-                cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                cancelledOrdersTab.classList.add('text-gray-600');
+                // Inactive tab click handler
+                inactiveTab.addEventListener('click', function() {
+                    // Update tab styles
+                    inactiveTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    inactiveTab.classList.remove('text-gray-600');
+                    activeTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    activeTab.classList.add('text-gray-600');
 
-                // Show pending content
-                activeOrdersContent.classList.add('hidden');
-                pendingOrdersContent.classList.remove('hidden');
-                cancelledOrdersContent.classList.add('hidden');
-            });
-
-            // Cancellations Tab
-            cancelledOrdersTab.addEventListener('click', function() {
-                // Update tab styles
-                cancelledOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                cancelledOrdersTab.classList.remove('text-gray-600');
-                activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                activeOrdersTab.classList.add('text-gray-600');
-                pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                pendingOrdersTab.classList.add('text-gray-600');
-
-                // Show cancellations content
-                activeOrdersContent.classList.add('hidden');
-                pendingOrdersContent.classList.add('hidden');
-                cancelledOrdersContent.classList.remove('hidden');
-            });
+                    // Show inactive content
+                    resultsInfo.classList.add('hidden');
+                    listingsTable.classList.add('hidden');
+                    inactiveContent.classList.remove('hidden');
+                    searchFilters.classList.add('hidden');
+                });
+            }
         });
     </script>
 </body>
