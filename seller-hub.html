@@ -18,6 +18,14 @@
 
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
 
+    <!-- Loading Overlay -->
+    <div id="globalLoader" class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl p-8 flex items-center">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#F4B840] mr-4"></div>
+            <span class="text-gray-700 font-medium">Loading...</span>
+        </div>
+    </div>
+
     <!-- Dropdown Menu -->
 <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50 hidden" id="dropdownMenu">
     <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors">
@@ -111,7 +119,13 @@
             <!-- Results Info -->
             <p class="text-gray-600 mb-4" id="resultsInfo">Showing 1-10 of 34 results</p>
 
-            <div class="overflow-x-auto" id="listingsTable">
+            <!-- Active Listings Loader -->
+            <div id="activeListingsLoader" class="flex items-center justify-center py-12">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F4B840]"></div>
+                <span class="ml-3 text-gray-600">Loading active listings...</span>
+            </div>
+
+            <div class="overflow-x-auto" id="listingsTable" style="display: none;">
                 <table class="w-full">
                     <thead>
                         <tr class="bg-gray-50 border-b">
@@ -178,7 +192,13 @@
                 <!-- Results Info -->
                 <p class="text-gray-600 mb-4" id="inactiveResultsInfo">Showing 1-10 of 34 results</p>
 
-                <div class="overflow-x-auto">
+                <!-- Inactive Listings Loader -->
+                <div id="inactiveListingsLoader" class="flex items-center justify-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F4B840]"></div>
+                    <span class="ml-3 text-gray-600">Loading inactive listings...</span>
+                </div>
+
+                <div class="overflow-x-auto" id="inactiveListingsTable" style="display: none;">
                     <table class="w-full">
                         <thead>
                             <tr class="bg-gray-50 border-b">
@@ -234,8 +254,14 @@
                     <p class="text-gray-600 text-sm">Showing 1-10 of 34 results</p>
                 </div>
 
+                <!-- Active Orders Loader -->
+                <div id="activeOrdersLoader" class="flex items-center justify-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F4B840]"></div>
+                    <span class="ml-3 text-gray-600">Loading active orders...</span>
+                </div>
+
                 <!-- Orders Table -->
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto" id="activeOrdersTable" style="display: none;">
                     <table class="w-full">
                         <thead>
                             <tr class="bg-gray-50 border-b">
@@ -462,8 +488,14 @@
                     <p class="text-gray-600 text-sm">Showing 1-10 of 10 results</p>
                 </div>
 
+                <!-- Pending Orders Loader -->
+                <div id="pendingOrdersLoader" class="flex items-center justify-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F4B840]"></div>
+                    <span class="ml-3 text-gray-600">Loading pending orders...</span>
+                </div>
+
                 <!-- Pending Orders Table -->
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto" id="pendingOrdersTable" style="display: none;">
                     <table class="w-full">
                         <thead>
                             <tr class="bg-gray-50 border-b">
@@ -600,8 +632,14 @@
                     <p class="text-gray-600 text-sm">Showing 1-4 of 4 results</p>
                 </div>
 
+                <!-- Cancelled Orders Loader -->
+                <div id="cancelledOrdersLoader" class="flex items-center justify-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F4B840]"></div>
+                    <span class="ml-3 text-gray-600">Loading cancelled orders...</span>
+                </div>
+
                 <!-- Cancellations Table -->
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto" id="cancelledOrdersTable" style="display: none;">
                     <table class="w-full">
                         <thead>
                             <tr class="bg-gray-50 border-b">
@@ -772,6 +810,13 @@
             <div class="bg-white rounded-2xl shadow-xl w-full max-w-3xl mx-auto p-8 relative max-h-[90vh] overflow-y-auto">
                 <button id="closeCreateListing" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl">&times;</button>
                 <h3 class="text-2xl font-bold text-[#48583B] mb-6">Create a listing</h3>
+                
+                <!-- Create Listing Loader -->
+                <div id="createListingLoader" class="flex items-center justify-center py-12 hidden">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#48583B]"></div>
+                    <span class="ml-3 text-gray-600">Creating your listing...</span>
+                </div>
+                
                 <form id="listingForm" class="space-y-6">
                     <!-- Details -->
                     <div>
@@ -1002,6 +1047,11 @@
                     ordersBtn.classList.remove('text-white');
                     listingsBtn.classList.add('text-white');
                     listingsBtn.classList.remove('text-[#F4B840]');
+                    
+                    // Load active orders with loader
+                    if (typeof loadActiveOrders === 'function') {
+                        loadActiveOrders();
+                    }
                 });
             }
 
@@ -1044,6 +1094,81 @@
                     listingsTable.classList.add('hidden');
                     inactiveContent.classList.remove('hidden');
                     searchFilters.classList.add('hidden');
+                    
+                    // Load inactive listings with loader
+                    if (typeof loadInactiveListings === 'function') {
+                        loadInactiveListings();
+                    }
+                });
+            }
+            
+            // Orders section tab switching with loaders
+            const activeOrdersTab = document.getElementById('activeOrdersTab');
+            const pendingOrdersTab = document.getElementById('pendingOrdersTab');
+            const cancelledOrdersTab = document.getElementById('cancelledOrdersTab');
+            const activeOrdersContent = document.getElementById('activeOrdersContent');
+            const pendingOrdersContent = document.getElementById('pendingOrdersContent');
+            const cancelledOrdersContent = document.getElementById('cancelledOrdersContent');
+
+            if (activeOrdersTab && pendingOrdersTab && cancelledOrdersTab) {
+                activeOrdersTab.addEventListener('click', function() {
+                    // Update tab styles
+                    activeOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    activeOrdersTab.classList.remove('text-gray-600');
+                    pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    pendingOrdersTab.classList.add('text-gray-600');
+                    cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    cancelledOrdersTab.classList.add('text-gray-600');
+
+                    // Show content
+                    activeOrdersContent.classList.remove('hidden');
+                    pendingOrdersContent.classList.add('hidden');
+                    cancelledOrdersContent.classList.add('hidden');
+                    
+                    // Load active orders with loader
+                    if (typeof loadActiveOrders === 'function') {
+                        loadActiveOrders();
+                    }
+                });
+
+                pendingOrdersTab.addEventListener('click', function() {
+                    // Update tab styles
+                    pendingOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    pendingOrdersTab.classList.remove('text-gray-600');
+                    activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    activeOrdersTab.classList.add('text-gray-600');
+                    cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    cancelledOrdersTab.classList.add('text-gray-600');
+
+                    // Show content
+                    activeOrdersContent.classList.add('hidden');
+                    pendingOrdersContent.classList.remove('hidden');
+                    cancelledOrdersContent.classList.add('hidden');
+                    
+                    // Load pending orders with loader
+                    if (typeof loadPendingOrders === 'function') {
+                        loadPendingOrders();
+                    }
+                });
+
+                cancelledOrdersTab.addEventListener('click', function() {
+                    // Update tab styles
+                    cancelledOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    cancelledOrdersTab.classList.remove('text-gray-600');
+                    activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    activeOrdersTab.classList.add('text-gray-600');
+                    pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    pendingOrdersTab.classList.add('text-gray-600');
+
+                    // Show content
+                    activeOrdersContent.classList.add('hidden');
+                    pendingOrdersContent.classList.add('hidden');
+                    cancelledOrdersContent.classList.remove('hidden');
+                    
+                    // Load cancelled orders with loader
+                    if (typeof loadCancelledOrders === 'function') {
+                        loadCancelledOrders();
+                    }
                 });
             }
         });
