@@ -38,40 +38,133 @@
 
     </header>
 
-    <section class="bg-[#FAF5EF] flex h-full">
-        <div class="bg-black max-h-full max-w-xl w-full p-5 overflow-y-auto mt-[-0.5px]">
-            <h2 class="text-2xl font-bold text-black mb-4 p-3">Chats</h2>
-            <div class="flex flex-col space-y-4">
-                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-                    <img src="./images/user-avatar.png" alt="User Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
-                    <div class="flex flex-col">
-                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
-                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+    <!-- Mobile Chat List -->
+    <section id="mobileChatList" class="md:hidden flex flex-col h-[calc(100vh-80px)] bg-[#48583B] text-white p-4 overflow-y-auto">
+        <h2 class="text-xl font-bold mb-6">Chats</h2>
+        <div class="flex flex-col gap-2 bg-[#E7E9DE] max-h-full h-full text-black rounded">
+            <!-- Example chat item -->
+            <div class="flex items-center p-3 rounded-lg hover:bg-[#F4B840]/20 cursor-pointer" onclick="showMobileThread()">
+                <img src="./images/user-avatar.png" class="h-10 w-10 rounded-full mr-3" alt="Avatar">
+                <div class="flex-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold">Seller Name</span>
+                        <span class="text-xs text-gray-400">13:00</span>
                     </div>
+                    <span class="text-sm text-black">Lorem ipsum dolor sit amet...</span>
                 </div>
-                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-                    <img src="./images/seller-avatar.png" alt="Seller Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
-                    <div class="flex flex-col">
-                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
-                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+            </div>
+            <div class="flex items-center p-3 rounded-lg hover:bg-[#F4B840]/20 cursor-pointer" onclick="showMobileThread()">
+                <img src="./images/seller-avatar.png" class="h-10 w-10 rounded-full mr-3" alt="Avatar">
+                <div class="flex-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold">User Name</span>
+                        <span class="text-xs text-gray-400">12:45</span>
                     </div>
+                    <span class="text-sm text-black">Hey, are you there?</span>
                 </div>
-                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-                    <img src="./images/user-avatar.png" alt="User Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
-                    <div class="flex flex-col">
-                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
-                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+            </div>
+            <div class="flex items-center p-3 rounded-lg hover:bg-[#F4B840]/20 cursor-pointer" onclick="showMobileThread()">
+                <img src="./images/user-avatar.png" class="h-10 w-10 rounded-full mr-3" alt="Avatar">
+                <div class="flex-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold">Seller Name</span>
+                        <span class="text-xs text-gray-400">11:30</span>
                     </div>
+                    <span class="text-sm text-black">Your order has been shipped!</span>
                 </div>
-                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
-                    <img src="./images/seller-avatar.png" alt="Seller Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
-                    <div class="flex flex-col">
-                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
-                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+            </div>
+            <div class="flex items-center p-3 rounded-lg hover:bg-[#F4B840]/20 cursor-pointer" onclick="showMobileThread()">
+                <img src="./images/seller-avatar.png" class="h-10 w-10 rounded-full mr-3" alt="Avatar">
+                <div class="flex-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold">User Name</span>
+                        <span class="text-xs text-gray-400">10:15</span>
                     </div>
+                    <span class="text-sm text-black">Can you send me the details?</span>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Mobile Message Thread -->
+    <section id="mobileThread" class="md:hidden hidden flex-col h-[calc(100vh-80px)] bg-[#FAF5EF] p-4 overflow-y-auto">
+        <div class="flex items-center mb-4">
+            <button onclick="showMobileList()" class="text-[#48583B] mr-2 text-xl">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <img src="./images/user-avatar.png" class="h-10 w-10 rounded-full mr-3" alt="Avatar">
+            <span class="font-semibold text-[#48583B]">Seller Name</span>
+        </div>
+        <div class="flex flex-col gap-4 mt-2">
+            <!-- Date separator -->
+            <div class="flex justify-center">
+                <span class="bg-[#48583B] text-white text-xs px-3 py-1 rounded-full">June 04, 2025</span>
+            </div>
+            <!-- Message bubbles -->
+            <div class="flex flex-col gap-2">
+                <!-- Received message -->
+                <div class="flex items-start">
+                    <img src="./images/seller-avatar.png" class="h-8 w-8 rounded-full mr-2" alt="Avatar">
+                    <div>
+                        <div class="bg-white rounded-lg px-4 py-2 shadow text-[#48583B]">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
+                        </div>
+                        <span class="text-xs text-[#F4B840] ml-2">13:00</span>
+                    </div>
+                </div>
+                <!-- Sent message -->
+                <div class="flex items-end justify-end">
+                    <div>
+                        <div class="bg-[#F4B840] rounded-lg px-4 py-2 shadow text-[#48583B]">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
+                        </div>
+                        <span class="text-xs text-[#48583B] ml-2">13:00</span>
+                    </div>
+                    <img src="./images/user-avatar.png" class="h-8 w-8 rounded-full ml-2" alt="Avatar">
+                </div>
+                <!-- Image message -->
+                <div class="flex items-start">
+                    <img src="./images/seller-avatar.png" class="h-8 w-8 rounded-full mr-2" alt="Avatar">
+                    <div>
+                        <div class="bg-white rounded-lg px-4 py-2 shadow flex items-center justify-center">
+                            <i class="fas fa-image text-2xl text-[#48583B]"></i>
+                        </div>
+                        <span class="text-xs text-[#F4B840] ml-2">13:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-auto pt-4">
+            <div class="flex items-center bg-white rounded-full shadow px-4 py-2">
+                <input type="text" placeholder="Type your message..." class="flex-1 bg-transparent outline-none text-[#48583B] px-2">
+                <button class="text-[#F4B840] ml-2"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    // filepath: c:\Users\Orillos\Desktop\Websites\retasifyyy\Rent\chat.html
+    // Hide message thread initially, show only chat list
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('mobileChatList').classList.remove('hidden');
+        document.getElementById('mobileChatList').classList.add('flex');
+        document.getElementById('mobileThread').classList.remove('flex');
+        document.getElementById('mobileThread').classList.add('hidden');
+    });
+
+    function showMobileThread() {
+        document.getElementById('mobileChatList').classList.add('hidden');
+        document.getElementById('mobileChatList').classList.remove('flex');
+        document.getElementById('mobileThread').classList.remove('hidden');
+        document.getElementById('mobileThread').classList.add('flex');
+    }
+    function showMobileList() {
+        document.getElementById('mobileThread').classList.add('hidden');
+        document.getElementById('mobileThread').classList.remove('flex');
+        document.getElementById('mobileChatList').classList.remove('hidden');
+        document.getElementById('mobileChatList').classList.add('flex');
+    }
+    </script>
+
 </body>
 </html>
