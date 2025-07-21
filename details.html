@@ -41,64 +41,70 @@
 </div>
 
 <!-- renter details -->
-<div class="fixed top-8 right-8 w-[420px] bg-white rounded-3xl shadow-xl p-10 z-50 flex flex-col overflow-y-auto"
-     style="min-height: 700px;">
-    <!-- Info icon -->
-    <div class="absolute top-6 right-6">
-        <button class="w-8 h-8 flex items-center justify-center rounded-full border border-[#C7D1B7] bg-white">
-            <i class="fas fa-info text-[#7A875B] text-xl"></i>
-        </button>
-    </div>
-    <!-- Form fields -->
-    <form class="flex flex-col gap-8 mt-2">
-        <div>
-            <label class="block text-lg font-normal text-gray-800 mb-2">
-                First Name <span class="ml-2">Last Name</span>
-                <span class="text-red-500 text-lg">*</span>
-            </label>
-            <input type="text" placeholder="Ex. John"
-                   class="w-full px-6 py-3 rounded-full border border-[#C7D1B7] bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#C7D1B7] text-lg font-normal placeholder-gray-400" />
+<div class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="w-[420px] bg-white rounded-3xl shadow-xl p-10 flex flex-col overflow-y-auto content-center justify-center items-center"
+         style="min-height: 700px; position: relative;">
+        <!-- Info icon -->
+        <div class="absolute top-6 right-6">
+            <button class="w-8 h-8 flex items-center justify-center rounded-full border border-[#C7D1B7] bg-white">
+                <i class="fas fa-info text-[#7A875B] text-xl"></i>
+            </button>
         </div>
-        <div>
-            <label class="block text-lg font-normal text-gray-800 mb-2">
-                Start Date and End Date
-                <span class="text-red-500 text-lg">*</span>
-            </label>
-            <!-- Date picker mockup -->
-            <div class="relative w-full flex flex-col items-center">
-                <div class="w-[340px] bg-white rounded-xl shadow-lg p-6 mt-2">
-                    <div class="flex justify-between items-center mb-4">
-                        <button class="text-gray-400 text-xl"><i class="fas fa-chevron-left"></i></button>
-                        <span class="font-semibold text-gray-700 text-lg">September 2021</span>
-                        <button class="text-gray-400 text-xl"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    <div class="grid grid-cols-7 gap-2 text-center mb-2 text-gray-400 font-medium text-sm">
-                        <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
-                    </div>
-                    <div class="grid grid-cols-7 gap-2 text-center text-gray-700 text-lg font-medium">
-                        <!-- Days 1-18 -->
-                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-                        <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-                        <span>15</span><span>16</span><span>17</span><span>18</span>
-                        <!-- Day 19 highlighted -->
-                        <span class="rounded-full bg-[#F44B40] text-white font-bold w-8 h-8 flex items-center justify-center mx-auto">19</span>
-                        <!-- Days 20-31 -->
-                        <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
-                        <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+        <!-- Form fields -->
+        <form class="flex flex-col gap-8 mt-2">
+            <div>
+                <label class="block text-lg font-normal text-gray-800 mb-2">
+                    First Name <span class="ml-2">Last Name</span>
+                    <span class="text-red-500 text-lg">*</span>
+                </label>
+                <input type="text" placeholder="Ex. John"
+                       class="w-full px-6 py-3 rounded-full border border-[#C7D1B7] bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#C7D1B7] text-lg font-normal placeholder-gray-400" />
+            </div>
+            <div>
+                <label class="block text-lg font-normal text-gray-800 mb-2">
+                    Start Date and End Date
+                    <span class="text-red-500 text-lg">*</span>
+                </label>
+                <!-- Date picker mockup -->
+                <div class="relative w-full flex flex-col items-center">
+                    <div class="w-[340px] bg-white rounded-xl shadow-lg p-6 mt-2">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="text-gray-400 text-xl"><i class="fas fa-chevron-left"></i></button>
+                            <span class="font-semibold text-gray-700 text-lg">September 2021</span>
+                            <button class="text-gray-400 text-xl"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2 text-center mb-2 text-gray-400 font-medium text-sm">
+                            <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2 text-center text-gray-700 text-lg font-medium">
+                            <!-- Days 1-18 -->
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                            <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                            <span>15</span><span>16</span><span>17</span><span>18</span>
+                            <!-- Day 19 highlighted -->
+                            <span class="rounded-full bg-[#F44B40] text-white font-bold w-8 h-8 flex items-center justify-center mx-auto">19</span>
+                            <!-- Days 20-31 -->
+                            <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+                            <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <label class="block text-lg font-normal text-gray-800 mb-2">
-                Final Price
-                <span class="text-red-500 text-lg">*</span>
-            </label>
-            <div class="flex items-center gap-2 font-bold">
-                <span>₱</span> <h1 id="price" class="text-2xl font-bold text-black">100</h1>
+            <div>
+                <label class="block text-lg font-normal text-gray-800 mb-2">
+                    Final Price
+                    <span class="text-red-500 text-lg">*</span>
+                </label>
+                <div class="flex items-center gap-2 font-bold">
+                    <span>₱</span> <h1 id="price" class="text-2xl font-bold text-black">100</h1>
+                </div>
             </div>
+        </form>
+        <div>
+            <button type="button" class="p-3 bg-[#F4B840] text-white rounded-full">Confirm Order</button>
+            <button type="button" class="p-3 px-11 text-black rounded-full border border-[#48583B]">Cancel</button>
         </div>
-    </form>
+    </div>
 </div>
 
 <body class="font-sans bg-[#FAF5EF] min-h-screen">
