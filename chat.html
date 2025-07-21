@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+</head>
+<body class="bg-[#FAF5EF]">
+
+    <header class="bg-[#48583B] p-4 md:px-8 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <img src="./images/RetasifyLogo.svg" alt="Retasify Logo" class="h-12 w-auto bg-white p-2 px-8 rounded-full ml-20">
+            
+            <nav class="hidden md:flex items-center gap-6 ml-5">
+                <a href="#" id="listingsBtn" class="text-white hover:text-[#F4B840] transition-colors text-lg">Listings</a>
+                <a href="#" id="ordersBtn" class="text-white hover:text-[#F4B840] transition-colors text-lg">Orders</a>
+                <button class="bg-[#F4B840] text-black px-4 py-2 rounded-full hover:bg-yellow-500 transition-colors" id="turnOffSellerMode">
+                    Turn Off Seller Mode
+                </button>
+            </nav>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <!-- <i class="fas fa-cog text-white text-xl hover:text-[#F4B840] cursor-pointer"></i>
+            <i class="fas fa-bell text-white text-xl hover:text-[#F4B840] cursor-pointer"></i> -->
+            <div class="flex items-center gap-2">
+                <!-- <i class="fas fa-user text-white text-xl"></i> -->
+                <span class="text-white text-sm" id="userName">Loading..</span>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="bg-[#FAF5EF] flex h-full">
+        <div class="bg-black max-h-full max-w-xl w-full p-5 overflow-y-auto mt-[-0.5px]">
+            <h2 class="text-2xl font-bold text-black mb-4 p-3">Chats</h2>
+            <div class="flex flex-col space-y-4">
+                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                    <img src="./images/user-avatar.png" alt="User Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
+                    <div class="flex flex-col">
+                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
+                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+                    </div>
+                </div>
+                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                    <img src="./images/seller-avatar.png" alt="Seller Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
+                    <div class="flex flex-col">
+                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
+                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+                    </div>
+                </div>
+                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                    <img src="./images/user-avatar.png" alt="User Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
+                    <div class="flex flex-col">
+                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
+                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+                    </div>
+                </div>
+                <div class="flex items-start w-full bg-white p-3 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                    <img src="./images/seller-avatar.png" alt="Seller Avatar" class="h-10 w-10 rounded-full mr-3 mt-5">
+                    <div class="flex flex-col">
+                        <h1 class="flex justify-start text-center p-2 text-[16px] font-bold" id="Uname"> bitch ass nigga</h1>
+                        <p class="text-xs p-2">lorem ipsum bitch ass nigga</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
