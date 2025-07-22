@@ -968,6 +968,23 @@
         </div>
     </div>
 
+    <!-- deactivate item modal -->
+    <div class="flex fixed inset-0 flex items-center justify-center hidden" id="deactivateItemModal">
+        <div class="h-[460px] w-[352px] flex-col flex flex-col overflow-y-auto content-center justify-center items-center bg-white rounded-2xl shadow-xl p-10">
+            <div class="flex">
+                <img class="h-[66px] w-[66px]" src="./images/report.png" alt="report">
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <h1 class=" text-[24px] ">Deactivate Item?</h1>
+                <p class="text-[16px] text-[#6F6F6F]">Are you sure you want to deactivate this item? It will no longer appear in your shop for customers to rent or view.</p>
+            </div>
+            <div class="flex gap-4 mt-6">
+                <button class="bg-white p-2 px-6 rounded-3xl border border-[#4B4B4B]">Cancel</button>
+                <button class="bg-[#FF8E5D] p-2 px-10 rounded-3xl border border-[#4B4B4B]">Yes</button>
+            </div>
+        </div>
+    </div>
+
     <!-- active orders -->
     <div class="hidden" id="activeOrders">
         <!-- Active orders content goes here -->
