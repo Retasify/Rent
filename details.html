@@ -50,12 +50,11 @@
 <div class="fixed inset-0 flex items-center justify-center z-50 hidden" id="renterDetailsModal">
     <div class="w-[420px] bg-white rounded-3xl shadow-xl p-10 flex flex-col overflow-y-auto content-center justify-center items-center"
          style="min-height: 700px; position: relative;">
-        <!-- Info icon -->
-        <div class="absolute top-6 right-6">
-            <button class="w-8 h-8 flex items-center justify-center rounded-full border border-[#C7D1B7] bg-white">
-                <i class="fas fa-info text-[#7A875B] text-xl"></i>
-            </button>
-        </div>
+        
+        
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Rental Form</h2>
+        
         <!-- Form fields -->
         <form class="flex flex-col gap-8 mt-2">
             <div>
@@ -88,14 +87,23 @@
                     Final Price
                     <span class="text-red-500 text-lg">*</span>
                 </label>
-                <div class="flex items-center gap-2 font-bold">
+                <div class="flex items-center gap-2 font-bold mb-6">
                     <span>₱</span> <h1 id="price" class="text-2xl font-bold text-black">100</h1>
                 </div>
             </div>
         </form>
+        
+        <!-- Payment disclaimer -->
+        <p class="text-sm text-gray-600 mt-4 mb-2 text-center px-4">
+            Note: Additional payment will be done in the rental shop, which will serve as your security deposit. It will be returned once the rental is returned.
+        </p>
+        <p class="text-sm text-gray-600 mt-4 mb-4 text-center px-4">
+            Note: ID will be required for the rental shop.
+        </p>
+        
         <div>
             <button type="button" class="p-3 bg-[#F4B840] text-white rounded-full">Confirm Order</button>
-            <button type="button" class="p-3 px-11 text-black rounded-full border border-[#48583B]">Cancel</button>
+            <button type="button" class="p-3 px-11 text-black rounded-full border border-[#48583B]" onclick="closeRenterModal()">Cancel</button>
         </div>
     </div>
 </div>
@@ -239,7 +247,7 @@
                     <!-- Price and Actions -->
                     <div class="border-t pt-6">
                         <div class="justify-between flex mb-6">
-                            <p class="font-medium text-gray-600 mb-1">Price Due</p>
+                            <p class="font-medium text-gray-600 mb-1">Rental Price / day</p>
                             <p class="text-3xl font-bold text-gray-800"id="finalPrice">Php 1,200</p>
                         </div>
 
@@ -578,6 +586,15 @@
         }
     }
 );
+
+// Function to close the renter modal
+function closeRenterModal() {
+    const renterDetailsModal = document.getElementById('renterDetailsModal');
+    if (renterDetailsModal) {
+        renterDetailsModal.classList.add('hidden');
+        document.body.style.overflow = ''; // Re-enable background scrolling
+    }
+}
 </script>
 </body>
 </html>
