@@ -243,8 +243,8 @@
                 <button id="activeOrdersTab" class="pb-2 px-4 border-b-2 border-[#F4B840] text-[#F4B840] font-semibold">
                     Active
                 </button>
-                <button id="pendingOrdersTab" class="pb-2 px-4 text-gray-600 hover:text-gray-800">
-                    Pending
+                <button id="completedOrdersTab" class="pb-2 px-4 text-gray-600 hover:text-gray-800">
+                    Completed
                 </button>
                 <button id="cancelledOrdersTab" class="pb-2 px-4 text-gray-600 hover:text-gray-800">
                     Cancellations
@@ -253,16 +253,18 @@
 
             <!-- Active Orders Content -->
             <div id="activeOrdersContent">
-                <!-- Total Active Count -->
-                <div class="mb-6">
-                    <p class="text-gray-700 font-semibold">Total Active (34)</p>
-                    <p class="text-gray-600 text-sm">Showing 1-10 of 34 results</p>
-                </div>
+                
 
                 <!-- Active Orders Loader -->
                 <div id="activeOrdersLoader" class="flex items-center justify-center py-12">
                     <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F4B840]"></div>
                     <span class="ml-3 text-gray-600">Loading active orders...</span>
+                </div>
+
+                <!-- Completed Orders Content -->
+                <div id="completedOrdersContent" class="hidden">
+                    <!-- Content for completed orders goes here -->
+                    <p>Completed orders will be shown here.</p>
                 </div>
 
                 <!-- Orders Table -->
@@ -1163,24 +1165,24 @@
             // Orders section tab switching with loaders
             const activeOrdersTab = document.getElementById('activeOrdersTab');
             const pendingOrdersTab = document.getElementById('pendingOrdersTab');
-            const cancelledOrdersTab = document.getElementById('cancelledOrdersTab');
+            const completedOrdersTab = document.getElementById('completedOrdersTab');
             const activeOrdersContent = document.getElementById('activeOrdersContent');
-            const pendingOrdersContent = document.getElementById('pendingOrdersContent');
+            const completedOrdersContent = document.getElementById('completedOrdersContent');
             const cancelledOrdersContent = document.getElementById('cancelledOrdersContent');
 
-            if (activeOrdersTab && pendingOrdersTab && cancelledOrdersTab) {
+            if (activeOrdersTab && completedOrdersTab && cancelledOrdersTab) {
                 activeOrdersTab.addEventListener('click', function() {
                     // Update tab styles
                     activeOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
                     activeOrdersTab.classList.remove('text-gray-600');
-                    pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                    pendingOrdersTab.classList.add('text-gray-600');
+                    completedOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    completedOrdersTab.classList.add('text-gray-600');
                     cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
                     cancelledOrdersTab.classList.add('text-gray-600');
 
                     // Show content
                     activeOrdersContent.classList.remove('hidden');
-                    pendingOrdersContent.classList.add('hidden');
+                    completedOrdersContent.classList.add('hidden');
                     cancelledOrdersContent.classList.add('hidden');
                     
                     // Load active orders with loader
@@ -1189,10 +1191,10 @@
                     }
                 });
 
-                pendingOrdersTab.addEventListener('click', function() {
+                completedOrdersTab.addEventListener('click', function() {
                     // Update tab styles
-                    pendingOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                    pendingOrdersTab.classList.remove('text-gray-600');
+                    completedOrdersTab.classList.add('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    completedOrdersTab.classList.remove('text-gray-600');
                     activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
                     activeOrdersTab.classList.add('text-gray-600');
                     cancelledOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
@@ -1200,12 +1202,12 @@
 
                     // Show content
                     activeOrdersContent.classList.add('hidden');
-                    pendingOrdersContent.classList.remove('hidden');
+                    completedOrdersContent.classList.remove('hidden');
                     cancelledOrdersContent.classList.add('hidden');
                     
-                    // Load pending orders with loader
-                    if (typeof loadPendingOrders === 'function') {
-                        loadPendingOrders();
+                    // Load completed orders with loader
+                    if (typeof loadCompletedOrders === 'function') {
+                        loadCompletedOrders();
                     }
                 });
 
@@ -1215,12 +1217,12 @@
                     cancelledOrdersTab.classList.remove('text-gray-600');
                     activeOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
                     activeOrdersTab.classList.add('text-gray-600');
-                    pendingOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
-                    pendingOrdersTab.classList.add('text-gray-600');
+                    completedOrdersTab.classList.remove('border-b-2', 'border-[#F4B840]', 'text-[#F4B840]', 'font-semibold');
+                    completedOrdersTab.classList.add('text-gray-600');
 
                     // Show content
                     activeOrdersContent.classList.add('hidden');
-                    pendingOrdersContent.classList.add('hidden');
+                    completedOrdersContent.classList.add('hidden');
                     cancelledOrdersContent.classList.remove('hidden');
                     
                     // Load cancelled orders with loader
